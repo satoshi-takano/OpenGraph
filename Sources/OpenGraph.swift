@@ -9,7 +9,7 @@
 import Foundation
 
 public struct OpenGraph {
-    private let source: [String: String]
+    private let source: [OpenGraphMetadata: String]
     
     init(data: NSData, injector: () -> OpenGraphParser = { DefaultOpenGraphParser() }) {
         let parser = injector()
