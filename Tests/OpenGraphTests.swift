@@ -10,6 +10,23 @@ import XCTest
 @testable import OpenGraph
 
 class OpenGraphTests: XCTestCase {
+    // htmlString is
+    // <!doctype html>
+    // <html lang="en">
+    // <head>
+    //   <meta charset="utf-8">
+    //   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    //   <title>Title</title>
+    //   <meta name="description" content="Description">
+    //   <meta property="og:title" content="example.com title">
+    //   <meta property="og:type" content="website">
+    //   <meta property="og:url" content="https://example.com">
+    //   <meta property="og:image" content="https://example.com/example.png">
+    //   <meta property="og:description" content="example.com description">
+    //   <link rel="stylesheet" media="all" href="/main.css" />
+    // </head>
+    // </html>
+    private let htmlString = "<!doctype html><html lang=\"en\"><head>  <meta charset=\"utf-8\">  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">  <title>Title</title>  <meta name=\"description\" content=\"Description\">  <meta property=\"og:type\" content=\"website\">  <meta property=\"og:url\" content=\"https://example.com\">  <meta property=\"og:image\" content=\"https://example.com/example.png\">  <meta property=\"og:title\" content=\"example.com title\">  <meta property=\"og:description\" content=\"example.com description\">  <link rel=\"stylesheet\" media=\"all\" href=\"/main.css\" /></head></html>"
     
     override func setUp() {
         super.setUp()
@@ -21,16 +38,12 @@ class OpenGraphTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-        }
+    func testBasicMetadata() {
+        let og = OpenGraph(data: htmlString.dataUsingEncoding(NSUTF8StringEncoding)!)
+        XCTAssert(og.valueForAttribute(.title) == "example.com title")
+        XCTAssert(og.valueForAttribute(.type) == "website")
+        XCTAssert(og.valueForAttribute(.url) == "https://example.com")
+        XCTAssert(og.valueForAttribute(.image) == "https://example.com/example.png")
     }
     
 }

@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		7BA6065B1D27ACC400CEFC18 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BA6065A1D27ACC400CEFC18 /* OpenGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7BA606621D27ACC400CEFC18 /* OpenGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA606571D27ACC400CEFC18 /* OpenGraph.framework */; };
-		7BA606751D27AD2500CEFC18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606731D27AD2500CEFC18 /* Info.plist */; };
-		7BA606761D27AD2500CEFC18 /* OpenGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */; };
+		7BA606AB1D27B05500CEFC18 /* OpenGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */; };
+		7BA606AC1D27B05900CEFC18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606731D27AD2500CEFC18 /* Info.plist */; };
+		7BA606AF1D27B06C00CEFC18 /* OpenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */; };
+		7BA606B01D27B06C00CEFC18 /* OpenGraphParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */; };
+		7BA606B21D27B62600CEFC18 /* OpenGraphMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +33,9 @@
 		7BA606611D27ACC400CEFC18 /* OpenGraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenGraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA606731D27AD2500CEFC18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphTests.swift; sourceTree = "<group>"; };
+		7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraph.swift; sourceTree = "<group>"; };
+		7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParser.swift; sourceTree = "<group>"; };
+		7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphMetadata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,9 @@
 		7BA606711D27AD2500CEFC18 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */,
+				7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */,
+				7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -186,7 +195,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BA606751D27AD2500CEFC18 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA606AC1D27B05900CEFC18 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +213,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BA606761D27AD2500CEFC18 /* OpenGraphTests.swift in Sources */,
+				7BA606B21D27B62600CEFC18 /* OpenGraphMetadata.swift in Sources */,
+				7BA606AF1D27B06C00CEFC18 /* OpenGraph.swift in Sources */,
+				7BA606B01D27B06C00CEFC18 /* OpenGraphParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA606AB1D27B05500CEFC18 /* OpenGraphTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +332,7 @@
 		7BA6066C1D27ACC400CEFC18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -330,12 +343,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraph";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7BA6066D1D27ACC400CEFC18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -352,7 +367,7 @@
 		7BA6066F1D27ACC400CEFC18 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = OpenGraphTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -362,7 +377,7 @@
 		7BA606701D27ACC400CEFC18 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = OpenGraphTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
