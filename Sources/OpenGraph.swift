@@ -12,8 +12,9 @@ public struct OpenGraph {
     private let source: [OpenGraphMetadata: String]
     
     init(data: NSData, injector: () -> OpenGraphParser = { DefaultOpenGraphParser() }) {
+    init(htmlString: String, injector: () -> OpenGraphParser = { DefaultOpenGraphParser() }) {
         let parser = injector()
-        source = parser.parse(data)
+        source = parser.parse(htmlString)
     }
     
     public subscript (attributeName: OpenGraphMetadata) -> String? {
