@@ -39,11 +39,11 @@ class OpenGraphTests: XCTestCase {
     }
     
     func testBasicMetadata() {
-        let og = OpenGraph(data: htmlString.dataUsingEncoding(NSUTF8StringEncoding)!)
-        XCTAssert(og.valueForAttribute(.title) == "example.com title")
-        XCTAssert(og.valueForAttribute(.type) == "website")
-        XCTAssert(og.valueForAttribute(.url) == "https://example.com")
-        XCTAssert(og.valueForAttribute(.image) == "https://example.com/example.png")
+        let og = OpenGraph(htmlString: htmlString)
+        XCTAssert(og[.title] == "example.com title")
+        XCTAssert(og[.type] == "website")
+        XCTAssert(og[.url] == "https://example.com")
+        XCTAssert(og[.image] == "https://example.com/example.png")
     }
     
 }
