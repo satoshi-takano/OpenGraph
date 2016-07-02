@@ -14,6 +14,8 @@
 		7BA606AF1D27B06C00CEFC18 /* OpenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */; };
 		7BA606B01D27B06C00CEFC18 /* OpenGraphParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */; };
 		7BA606B21D27B62600CEFC18 /* OpenGraphMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */; };
+		7BA606B41D27C6B100CEFC18 /* OpenGraphParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */; };
+		7BA606B61D27C79800CEFC18 /* OpenGraphResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraph.swift; sourceTree = "<group>"; };
 		7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParser.swift; sourceTree = "<group>"; };
 		7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphMetadata.swift; sourceTree = "<group>"; };
+		7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParseError.swift; sourceTree = "<group>"; };
+		7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphResponseError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,8 @@
 				7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */,
 				7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */,
 				7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */,
+				7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */,
+				7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -214,8 +220,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA606B21D27B62600CEFC18 /* OpenGraphMetadata.swift in Sources */,
+				7BA606B41D27C6B100CEFC18 /* OpenGraphParseError.swift in Sources */,
 				7BA606AF1D27B06C00CEFC18 /* OpenGraph.swift in Sources */,
 				7BA606B01D27B06C00CEFC18 /* OpenGraphParser.swift in Sources */,
+				7BA606B61D27C79800CEFC18 /* OpenGraphResponseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
