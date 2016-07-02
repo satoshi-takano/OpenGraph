@@ -16,8 +16,8 @@ public struct OpenGraph {
         source = parser.parse(data)
     }
     
-    public func valueForAttribute(attributeName: OpenGraphMetadata) -> String? {
-        return source[attributeName.rawValue]
+    public subscript (attributeName: OpenGraphMetadata) -> String? {
+        return source[attributeName]
     }
 }
 
