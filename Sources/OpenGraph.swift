@@ -9,15 +9,16 @@
 import Foundation
 
 public struct OpenGraph {
-    private let source: [String: String]
+    private let source: [OpenGraphMetadata: String]
     
     init(data: NSData, injector: () -> OpenGraphParser = { DefaultOpenGraphParser() }) {
+    init(htmlString: String, injector: () -> OpenGraphParser = { DefaultOpenGraphParser() }) {
         let parser = injector()
-        source = parser.parse(data)
+        source = parser.parse(htmlString)
     }
     
-    public func valueForAttribute(attributeName: OpenGraphMetadata) -> String? {
-        return source[attributeName.rawValue]
+    public subscript (attributeName: OpenGraphMetadata) -> String? {
+        return source[attributeName]
     }
 }
 
