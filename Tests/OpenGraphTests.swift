@@ -7,27 +7,10 @@
 //
 
 import XCTest
+import OHHTTPStubs
 @testable import OpenGraph
 
 class OpenGraphTests: XCTestCase {
-    // htmlString is
-    // <!doctype html>
-    // <html lang="en">
-    // <head>
-    //   <meta charset="utf-8">
-    //   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    //   <title>Title</title>
-    //   <meta name="description" content="Description">
-    //   <meta property="og:title" content="example.com title">
-    //   <meta property="og:type" content="website">
-    //   <meta property="og:url" content="https://example.com">
-    //   <meta property="og:image" content="https://example.com/example.png">
-    //   <meta property="og:description" content="example.com description">
-    //   <link rel="stylesheet" media="all" href="/main.css" />
-    // </head>
-    // </html>
-    private let htmlString = "<!doctype html><html lang=\"en\"><head>  <meta charset=\"utf-8\">  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">  <title>Title</title>  <meta name=\"description\" content=\"Description\">  <meta property=\"og:type\" content=\"website\">  <meta property=\"og:url\" content=\"https://example.com\">  <meta property=\"og:image\" content=\"https://example.com/example.png\">  <meta property=\"og:title\" content=\"example.com title\">  <meta property=\"og:description\" content=\"example.com description\">  <link rel=\"stylesheet\" media=\"all\" href=\"/main.css\" /></head></html>"
-    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -36,14 +19,94 @@ class OpenGraphTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+        
+        OHHTTPStubs.removeAllStubs()
     }
     
-    func testBasicMetadata() {
-        let og = OpenGraph(htmlString: htmlString)
-        XCTAssert(og[.title] == "example.com title")
-        XCTAssert(og[.type] == "website")
-        XCTAssert(og[.url] == "https://example.com")
-        XCTAssert(og[.image] == "https://example.com/example.png")
+    func testFetching() {
+        let responseArrived = expectationWithDescription("response of async request has arrived")
+        
+        OHHTTPStubs.stubRequestsPassingTest({ request -> Bool in
+                return true
+            }) { request -> OHHTTPStubsResponse in
+                let path = NSBundle(forClass: self.dynamicType).pathForResource("example.com", ofType: "html")
+                return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
+            }
+        
+        let url = NSURL(string: "https://www.example.com")!
+        var og: OpenGraph!
+        var error: ErrorType?
+        OpenGraph.fetch(url) { _og, _error in
+            og = _og
+            error = _error
+            responseArrived.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10) { _ in
+            XCTAssert(og[.title] == "example.com title")
+            XCTAssert(og[.type] == "website")
+            XCTAssert(og[.url] == "https://www.example.com")
+            XCTAssert(og[.image] == "https://www.example.com/images/example.png")
+            
+            XCTAssert(error == nil)
+        }
     }
     
+    func testHTTPResponseError() {
+        let responseArrived = expectationWithDescription("response of async request has arrived")
+        
+        OHHTTPStubs.stubRequestsPassingTest({ request -> Bool in
+            return true
+        }) { request -> OHHTTPStubsResponse in
+            OHHTTPStubsResponse(JSONObject: [:], statusCode: 404, headers: nil)
+        }
+        
+        let url = NSURL(string: "https://www.example.com")!
+        var og: OpenGraph?
+        var error: ErrorType?
+        OpenGraph.fetch(url) { _og, _error in
+            og = _og
+            error = _error
+            responseArrived.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10) { _ in
+            XCTAssert(og == nil)
+
+            XCTAssert(error! is OpenGraphResponseError)
+            
+            var statusCode: Int = 0
+            switch error as! OpenGraphResponseError {
+            case .UnexpectedStatusCode(let code):
+                statusCode = code
+                break
+            }
+            
+            XCTAssert(statusCode == 404)
+        }
+    }
+    
+    func testParseError() {
+        let responseArrived = expectationWithDescription("response of async request has arrived")
+        
+        OHHTTPStubs.stubRequestsPassingTest({ request -> Bool in
+            return true
+        }) { request -> OHHTTPStubsResponse in
+            OHHTTPStubsResponse(data: "あ".dataUsingEncoding(NSShiftJISStringEncoding)!, statusCode: 200, headers: nil)
+        }
+        
+        let url = NSURL(string: "https://www.example.com")!
+        var og: OpenGraph?
+        var error: ErrorType?
+        OpenGraph.fetch(url) { _og, _error in
+            og = _og
+            error = _error
+            responseArrived.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10) { _ in
+            XCTAssert(og == nil)
+            XCTAssert(error! is OpenGraphParseError)
+        }
+    }
 }

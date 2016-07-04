@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7BA6065B1D27ACC400CEFC18 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BA6065A1D27ACC400CEFC18 /* OpenGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E28BDCABD8543AF3A445910 /* Pods_OpenGraphTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B9A598D91B7225F8C266A0 /* Pods_OpenGraphTests.framework */; };
 		7BA606621D27ACC400CEFC18 /* OpenGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA606571D27ACC400CEFC18 /* OpenGraph.framework */; };
 		7BA606AB1D27B05500CEFC18 /* OpenGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */; };
 		7BA606AC1D27B05900CEFC18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606731D27AD2500CEFC18 /* Info.plist */; };
 		7BA606AF1D27B06C00CEFC18 /* OpenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */; };
 		7BA606B01D27B06C00CEFC18 /* OpenGraphParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */; };
 		7BA606B21D27B62600CEFC18 /* OpenGraphMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */; };
+		7BA606B41D27C6B100CEFC18 /* OpenGraphParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */; };
+		7BA606B61D27C79800CEFC18 /* OpenGraphResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */; };
+		7BA606C21D2A361A00CEFC18 /* example.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606C01D2A35B700CEFC18 /* example.com.html */; };
+		7BA606C61D2A3DF900CEFC18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606C41D2A3DF900CEFC18 /* Info.plist */; };
+		7BA606C71D2A3DF900CEFC18 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BA606C51D2A3DF900CEFC18 /* OpenGraph.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +33,20 @@
 
 /* Begin PBXFileReference section */
 		7BA606571D27ACC400CEFC18 /* OpenGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BA6065A1D27ACC400CEFC18 /* OpenGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGraph.h; sourceTree = "<group>"; };
-		7BA6065C1D27ACC400CEFC18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BA606611D27ACC400CEFC18 /* OpenGraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenGraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA606731D27AD2500CEFC18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphTests.swift; sourceTree = "<group>"; };
 		7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraph.swift; sourceTree = "<group>"; };
 		7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParser.swift; sourceTree = "<group>"; };
 		7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphMetadata.swift; sourceTree = "<group>"; };
+		7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParseError.swift; sourceTree = "<group>"; };
+		7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphResponseError.swift; sourceTree = "<group>"; };
+		7BA606C01D2A35B700CEFC18 /* example.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example.com.html; sourceTree = "<group>"; };
+		7BA606C41D2A3DF900CEFC18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = SOURCE_ROOT; };
+		7BA606C51D2A3DF900CEFC18 /* OpenGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGraph.h; path = Sources/OpenGraph.h; sourceTree = SOURCE_ROOT; };
+		E7FFFC44C325728BE5EE058D /* Pods-OpenGraphTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenGraphTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenGraphTests/Pods-OpenGraphTests.release.xcconfig"; sourceTree = "<group>"; };
+		F0B9A598D91B7225F8C266A0 /* Pods_OpenGraphTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenGraphTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCC18B926149F65446F219A2 /* Pods-OpenGraphTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenGraphTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenGraphTests/Pods-OpenGraphTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,18 +62,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA606621D27ACC400CEFC18 /* OpenGraph.framework in Frameworks */,
+				3E28BDCABD8543AF3A445910 /* Pods_OpenGraphTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		496A485F33BC0C15ACF30BD5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FCC18B926149F65446F219A2 /* Pods-OpenGraphTests.debug.xcconfig */,
+				E7FFFC44C325728BE5EE058D /* Pods-OpenGraphTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		7BA6064D1D27ACC400CEFC18 = {
 			isa = PBXGroup;
 			children = (
 				7BA606591D27ACC400CEFC18 /* OpenGraph */,
 				7BA606721D27AD2500CEFC18 /* Tests */,
 				7BA606581D27ACC400CEFC18 /* Products */,
+				496A485F33BC0C15ACF30BD5 /* Pods */,
+				CE844A602EEFC0A1087CCE52 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,8 +101,7 @@
 		7BA606591D27ACC400CEFC18 /* OpenGraph */ = {
 			isa = PBXGroup;
 			children = (
-				7BA6065A1D27ACC400CEFC18 /* OpenGraph.h */,
-				7BA6065C1D27ACC400CEFC18 /* Info.plist */,
+				7BA606C31D2A3DE100CEFC18 /* Supporting Files */,
 				7BA606711D27AD2500CEFC18 /* Sources */,
 			);
 			path = OpenGraph;
@@ -91,6 +113,8 @@
 				7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */,
 				7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */,
 				7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */,
+				7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */,
+				7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -98,11 +122,37 @@
 		7BA606721D27AD2500CEFC18 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				7BA606BD1D2A34B500CEFC18 /* HTML */,
 				7BA606731D27AD2500CEFC18 /* Info.plist */,
 				7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */,
 			);
 			path = Tests;
 			sourceTree = SOURCE_ROOT;
+		};
+		7BA606BD1D2A34B500CEFC18 /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				7BA606C01D2A35B700CEFC18 /* example.com.html */,
+			);
+			name = HTML;
+			sourceTree = "<group>";
+		};
+		7BA606C31D2A3DE100CEFC18 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7BA606C41D2A3DF900CEFC18 /* Info.plist */,
+				7BA606C51D2A3DF900CEFC18 /* OpenGraph.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CE844A602EEFC0A1087CCE52 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0B9A598D91B7225F8C266A0 /* Pods_OpenGraphTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -111,7 +161,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BA6065B1D27ACC400CEFC18 /* OpenGraph.h in Headers */,
+				7BA606C71D2A3DF900CEFC18 /* OpenGraph.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,9 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7BA6066E1D27ACC400CEFC18 /* Build configuration list for PBXNativeTarget "OpenGraphTests" */;
 			buildPhases = (
+				A05243217ACAFE206E0EA724 /* Check Pods Manifest.lock */,
 				7BA6065D1D27ACC400CEFC18 /* Sources */,
 				7BA6065E1D27ACC400CEFC18 /* Frameworks */,
 				7BA6065F1D27ACC400CEFC18 /* Resources */,
+				53A6B9F664B63BC725B9029C /* Embed Pods Frameworks */,
+				994B08F109A95EFDA3174E4A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA606C61D2A3DF900CEFC18 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,11 +256,60 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA606C21D2A361A00CEFC18 /* example.com.html in Resources */,
 				7BA606AC1D27B05900CEFC18 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53A6B9F664B63BC725B9029C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenGraphTests/Pods-OpenGraphTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		994B08F109A95EFDA3174E4A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OpenGraphTests/Pods-OpenGraphTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A05243217ACAFE206E0EA724 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7BA606521D27ACC400CEFC18 /* Sources */ = {
@@ -214,8 +317,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA606B21D27B62600CEFC18 /* OpenGraphMetadata.swift in Sources */,
+				7BA606B41D27C6B100CEFC18 /* OpenGraphParseError.swift in Sources */,
 				7BA606AF1D27B06C00CEFC18 /* OpenGraph.swift in Sources */,
 				7BA606B01D27B06C00CEFC18 /* OpenGraphParser.swift in Sources */,
+				7BA606B61D27C79800CEFC18 /* OpenGraphResponseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +471,7 @@
 		};
 		7BA6066F1D27ACC400CEFC18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FCC18B926149F65446F219A2 /* Pods-OpenGraphTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -376,6 +482,7 @@
 		};
 		7BA606701D27ACC400CEFC18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7FFFC44C325728BE5EE058D /* Pods-OpenGraphTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
