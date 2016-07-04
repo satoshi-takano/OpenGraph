@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3E28BDCABD8543AF3A445910 /* Pods_OpenGraphTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B9A598D91B7225F8C266A0 /* Pods_OpenGraphTests.framework */; };
-		7BA6065B1D27ACC400CEFC18 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BA6065A1D27ACC400CEFC18 /* OpenGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7BA606621D27ACC400CEFC18 /* OpenGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA606571D27ACC400CEFC18 /* OpenGraph.framework */; };
 		7BA606AB1D27B05500CEFC18 /* OpenGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */; };
 		7BA606AC1D27B05900CEFC18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606731D27AD2500CEFC18 /* Info.plist */; };
@@ -18,6 +17,8 @@
 		7BA606B41D27C6B100CEFC18 /* OpenGraphParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */; };
 		7BA606B61D27C79800CEFC18 /* OpenGraphResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */; };
 		7BA606C21D2A361A00CEFC18 /* example.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606C01D2A35B700CEFC18 /* example.com.html */; };
+		7BA606C61D2A3DF900CEFC18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606C41D2A3DF900CEFC18 /* Info.plist */; };
+		7BA606C71D2A3DF900CEFC18 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BA606C51D2A3DF900CEFC18 /* OpenGraph.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +33,6 @@
 
 /* Begin PBXFileReference section */
 		7BA606571D27ACC400CEFC18 /* OpenGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BA6065A1D27ACC400CEFC18 /* OpenGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGraph.h; sourceTree = "<group>"; };
-		7BA6065C1D27ACC400CEFC18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BA606611D27ACC400CEFC18 /* OpenGraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenGraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BA606731D27AD2500CEFC18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphTests.swift; sourceTree = "<group>"; };
@@ -43,6 +42,8 @@
 		7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParseError.swift; sourceTree = "<group>"; };
 		7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphResponseError.swift; sourceTree = "<group>"; };
 		7BA606C01D2A35B700CEFC18 /* example.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example.com.html; sourceTree = "<group>"; };
+		7BA606C41D2A3DF900CEFC18 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = SOURCE_ROOT; };
+		7BA606C51D2A3DF900CEFC18 /* OpenGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGraph.h; path = Sources/OpenGraph.h; sourceTree = SOURCE_ROOT; };
 		E7FFFC44C325728BE5EE058D /* Pods-OpenGraphTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenGraphTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenGraphTests/Pods-OpenGraphTests.release.xcconfig"; sourceTree = "<group>"; };
 		F0B9A598D91B7225F8C266A0 /* Pods_OpenGraphTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OpenGraphTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCC18B926149F65446F219A2 /* Pods-OpenGraphTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenGraphTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenGraphTests/Pods-OpenGraphTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -100,8 +101,7 @@
 		7BA606591D27ACC400CEFC18 /* OpenGraph */ = {
 			isa = PBXGroup;
 			children = (
-				7BA6065A1D27ACC400CEFC18 /* OpenGraph.h */,
-				7BA6065C1D27ACC400CEFC18 /* Info.plist */,
+				7BA606C31D2A3DE100CEFC18 /* Supporting Files */,
 				7BA606711D27AD2500CEFC18 /* Sources */,
 			);
 			path = OpenGraph;
@@ -137,6 +137,15 @@
 			name = HTML;
 			sourceTree = "<group>";
 		};
+		7BA606C31D2A3DE100CEFC18 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7BA606C41D2A3DF900CEFC18 /* Info.plist */,
+				7BA606C51D2A3DF900CEFC18 /* OpenGraph.h */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		CE844A602EEFC0A1087CCE52 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +161,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BA6065B1D27ACC400CEFC18 /* OpenGraph.h in Headers */,
+				7BA606C71D2A3DF900CEFC18 /* OpenGraph.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BA606C61D2A3DF900CEFC18 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
