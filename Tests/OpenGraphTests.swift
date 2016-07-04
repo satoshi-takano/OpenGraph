@@ -85,4 +85,28 @@ class OpenGraphTests: XCTestCase {
             XCTAssert(statusCode == 404)
         }
     }
+    
+    func testParseError() {
+        let responseArrived = expectationWithDescription("response of async request has arrived")
+        
+        OHHTTPStubs.stubRequestsPassingTest({ request -> Bool in
+            return true
+        }) { request -> OHHTTPStubsResponse in
+            OHHTTPStubsResponse(data: "あ".dataUsingEncoding(NSShiftJISStringEncoding)!, statusCode: 200, headers: nil)
+        }
+        
+        let url = NSURL(string: "https://www.example.com")!
+        var og: OpenGraph?
+        var error: ErrorType?
+        OpenGraph.fetch(url) { _og, _error in
+            og = _og
+            error = _error
+            responseArrived.fulfill()
+        }
+        
+        waitForExpectationsWithTimeout(10) { _ in
+            XCTAssert(og == nil)
+            XCTAssert(error! is OpenGraphParseError)
+        }
+    }
 }
