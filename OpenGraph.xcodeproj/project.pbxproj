@@ -10,15 +10,13 @@
 		3E28BDCABD8543AF3A445910 /* Pods_OpenGraphTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B9A598D91B7225F8C266A0 /* Pods_OpenGraphTests.framework */; };
 		7BA606621D27ACC400CEFC18 /* OpenGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA606571D27ACC400CEFC18 /* OpenGraph.framework */; };
 		7BA606AB1D27B05500CEFC18 /* OpenGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606741D27AD2500CEFC18 /* OpenGraphTests.swift */; };
-		7BA606AC1D27B05900CEFC18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606731D27AD2500CEFC18 /* Info.plist */; };
 		7BA606AF1D27B06C00CEFC18 /* OpenGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606AD1D27B06C00CEFC18 /* OpenGraph.swift */; };
 		7BA606B01D27B06C00CEFC18 /* OpenGraphParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606AE1D27B06C00CEFC18 /* OpenGraphParser.swift */; };
 		7BA606B21D27B62600CEFC18 /* OpenGraphMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B11D27B62600CEFC18 /* OpenGraphMetadata.swift */; };
 		7BA606B41D27C6B100CEFC18 /* OpenGraphParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B31D27C6B100CEFC18 /* OpenGraphParseError.swift */; };
 		7BA606B61D27C79800CEFC18 /* OpenGraphResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA606B51D27C79800CEFC18 /* OpenGraphResponseError.swift */; };
 		7BA606C21D2A361A00CEFC18 /* example.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606C01D2A35B700CEFC18 /* example.com.html */; };
-		7BA606C61D2A3DF900CEFC18 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7BA606C41D2A3DF900CEFC18 /* Info.plist */; };
-		7BA606C71D2A3DF900CEFC18 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BA606C51D2A3DF900CEFC18 /* OpenGraph.h */; };
+		7BA606C71D2A3DF900CEFC18 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BA606C51D2A3DF900CEFC18 /* OpenGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,7 +246,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BA606C61D2A3DF900CEFC18 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BA606C21D2A361A00CEFC18 /* example.com.html in Resources */,
-				7BA606AC1D27B05900CEFC18 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +438,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = OpenGraph/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraph";
@@ -460,7 +456,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = OpenGraph/Info.plist;
+				INFOPLIST_FILE = Sources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraph";
