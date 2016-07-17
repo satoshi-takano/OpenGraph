@@ -12,6 +12,10 @@ OpenGraph.fetch(url) { og, error in
 ```
 
 ## Installation
+### CocoaPods
+Insert `pod 'OpenGraph'` to your Podfile and run `pod install`.
+
+### Carthage
 TBD
 
 ## License
