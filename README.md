@@ -1,7 +1,7 @@
 # OpenGraph
 [![Build Status](https://travis-ci.org/satoshi-takano/OpenGraph.svg?branch=feature%2Fci)](https://travis-ci.org/satoshi-takano/OpenGraph)  
 OpenGraph is a Swift wrapper for the [Open Graph protocol](http://ogp.me/).
-
+You can fetch OpenGraph,then you can access the attributes with subscript and the key provided by enum type.
 ```swift
 OpenGraph.fetch(url) { og, error in
     print(og?[.title]) // => og:title of the web site
