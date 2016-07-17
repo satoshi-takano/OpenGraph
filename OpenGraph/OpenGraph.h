@@ -2,11 +2,11 @@
 //  OpenGraph.h
 //  OpenGraph
 //
-//  Created by Satoshi Takano on 2016/07/02.
+//  Created by Satoshi Takano on 2016/07/17.
 //  Copyright © 2016年 Satoshi Takano. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for OpenGraph.
 FOUNDATION_EXPORT double OpenGraphVersionNumber;
