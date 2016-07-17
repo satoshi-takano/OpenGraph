@@ -1,11 +1,3 @@
-//
-//  OpenGraph.swift
-//  Melpy
-//
-//  Created by Satoshi Takano on 2016/07/01.
-//  Copyright © 2016年 DeNA. All rights reserved.
-//
-
 import Foundation
 
 public struct OpenGraph {
