@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7BA606561D27ACC400CEFC18"
+               BlueprintIdentifier = "7B24FB141D3B2583005275B0"
                BuildableName = "OpenGraph.framework"
                BlueprintName = "OpenGraph"
                ReferencedContainer = "container:OpenGraph.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7BA606601D27ACC400CEFC18"
+               BlueprintIdentifier = "7B24FB1E1D3B2583005275B0"
                BuildableName = "OpenGraphTests.xctest"
                BlueprintName = "OpenGraphTests"
                ReferencedContainer = "container:OpenGraph.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7BA606561D27ACC400CEFC18"
+            BlueprintIdentifier = "7B24FB141D3B2583005275B0"
             BuildableName = "OpenGraph.framework"
             BlueprintName = "OpenGraph"
             ReferencedContainer = "container:OpenGraph.xcodeproj">
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7BA606561D27ACC400CEFC18"
+            BlueprintIdentifier = "7B24FB141D3B2583005275B0"
             BuildableName = "OpenGraph.framework"
             BlueprintName = "OpenGraph"
             ReferencedContainer = "container:OpenGraph.xcodeproj">
@@ -82,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7BA606561D27ACC400CEFC18"
+            BlueprintIdentifier = "7B24FB141D3B2583005275B0"
             BuildableName = "OpenGraph.framework"
             BlueprintName = "OpenGraph"
             ReferencedContainer = "container:OpenGraph.xcodeproj">

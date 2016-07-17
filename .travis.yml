@@ -1,5 +1,8 @@
 language: objective-c
 osx_image: xcode7.3
 
-xcode_workspace: OpenGraph.xcworkspace
+xcode_project: OpenGraph.xcodeproj
 xcode_scheme: OpenGraph
+
+before_install:
+  - carthage bootstrap
