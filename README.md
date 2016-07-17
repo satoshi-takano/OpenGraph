@@ -1,4 +1,5 @@
 # OpenGraph
+[![Build Status](https://travis-ci.org/satoshi-takano/OpenGraph.svg?branch=feature%2Fci)](https://travis-ci.org/satoshi-takano/OpenGraph)  
 OpenGraph is a Swift wrapper for the [Open Graph protocol](http://ogp.me/).
 
 ```swift
