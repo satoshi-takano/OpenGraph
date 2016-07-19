@@ -16,7 +16,7 @@ OpenGraph.fetch(url) { og, error in
 Insert `pod 'OpenGraph'` to your Podfile and run `pod install`.
 
 ### Carthage
-TBD
+Insert `github "satoshi-takano/OpenGraph"` to your Cartfile and run `carthage update`.
 
 ## License
 This project and library has been created by Satoshi Takano and is under the MIT License.
