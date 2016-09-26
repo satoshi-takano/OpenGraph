@@ -16,25 +16,25 @@ class OpenGraphTests: XCTestCase {
     }
     
     func testFetching() {
-        let responseArrived = expectationWithDescription("response of async request has arrived")
+        let responseArrived = expectation(description: "response of async request has arrived")
         
-        OHHTTPStubs.stubRequestsPassingTest({ request -> Bool in
+        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
                 return true
             }) { request -> OHHTTPStubsResponse in
-                let path = NSBundle(forClass: self.dynamicType).pathForResource("example.com", ofType: "html")
+                let path = Bundle(for: type(of: self)).path(forResource: "example.com", ofType: "html")
                 return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
             }
         
-        let url = NSURL(string: "https://www.example.com")!
+        let url = URL(string: "https://www.example.com")!
         var og: OpenGraph!
-        var error: ErrorType?
-        OpenGraph.fetch(url) { _og, _error in
+        var error: Error?
+        OpenGraph.fetch(url: url) { _og, _error in
             og = _og
             error = _error
             responseArrived.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10) { _ in
+        waitForExpectations(timeout: 10) { _ in
             XCTAssert(og[.title] == "example.com title")
             XCTAssert(og[.type] == "website")
             XCTAssert(og[.url] == "https://www.example.com")
@@ -45,31 +45,31 @@ class OpenGraphTests: XCTestCase {
     }
     
     func testHTTPResponseError() {
-        let responseArrived = expectationWithDescription("response of async request has arrived")
+        let responseArrived = expectation(description: "response of async request has arrived")
         
-        OHHTTPStubs.stubRequestsPassingTest({ request -> Bool in
+        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
             return true
         }) { request -> OHHTTPStubsResponse in
-            OHHTTPStubsResponse(JSONObject: [:], statusCode: 404, headers: nil)
+            OHHTTPStubsResponse(jsonObject: [:], statusCode: 404, headers: nil)
         }
         
-        let url = NSURL(string: "https://www.example.com")!
+        let url = URL(string: "https://www.example.com")!
         var og: OpenGraph?
-        var error: ErrorType?
-        OpenGraph.fetch(url) { _og, _error in
+        var error: Error?
+        OpenGraph.fetch(url: url) { _og, _error in
             og = _og
             error = _error
             responseArrived.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10) { _ in
+        waitForExpectations(timeout: 10) { _ in
             XCTAssert(og == nil)
 
             XCTAssert(error! is OpenGraphResponseError)
             
             var statusCode: Int = 0
             switch error as! OpenGraphResponseError {
-            case .UnexpectedStatusCode(let code):
+            case .unexpectedStatusCode(let code):
                 statusCode = code
                 break
             }
@@ -79,24 +79,24 @@ class OpenGraphTests: XCTestCase {
     }
     
     func testParseError() {
-        let responseArrived = expectationWithDescription("response of async request has arrived")
+        let responseArrived = expectation(description: "response of async request has arrived")
         
-        OHHTTPStubs.stubRequestsPassingTest({ request -> Bool in
+        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
             return true
         }) { request -> OHHTTPStubsResponse in
-            OHHTTPStubsResponse(data: "あ".dataUsingEncoding(NSShiftJISStringEncoding)!, statusCode: 200, headers: nil)
+            OHHTTPStubsResponse(data: "あ".data(using: String.Encoding.shiftJIS)!, statusCode: 200, headers: nil)
         }
         
-        let url = NSURL(string: "https://www.example.com")!
+        let url = URL(string: "https://www.example.com")!
         var og: OpenGraph?
-        var error: ErrorType?
-        OpenGraph.fetch(url) { _og, _error in
+        var error: Error?
+        OpenGraph.fetch(url: url) { _og, _error in
             og = _og
             error = _error
             responseArrived.fulfill()
         }
         
-        waitForExpectationsWithTimeout(10) { _ in
+        waitForExpectations(timeout: 10) { _ in
             XCTAssert(og == nil)
             XCTAssert(error! is OpenGraphParseError)
         }

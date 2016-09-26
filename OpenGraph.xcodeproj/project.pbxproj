@@ -15,7 +15,6 @@
 		7B24FB481D3B27E5005275B0 /* OpenGraphParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB431D3B27E5005275B0 /* OpenGraphParseError.swift */; };
 		7B24FB491D3B27E5005275B0 /* OpenGraphParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB441D3B27E5005275B0 /* OpenGraphParser.swift */; };
 		7B24FB4A1D3B27E5005275B0 /* OpenGraphResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB451D3B27E5005275B0 /* OpenGraphResponseError.swift */; };
-		7B24FB4F1D3B2CEC005275B0 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B24FB4E1D3B2CEC005275B0 /* OHHTTPStubs.framework */; };
 		7B24FB531D3B2DD4005275B0 /* example.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B24FB521D3B2DD4005275B0 /* example.com.html */; };
 /* End PBXBuildFile section */
 
@@ -41,7 +40,6 @@
 		7B24FB431D3B27E5005275B0 /* OpenGraphParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParseError.swift; sourceTree = "<group>"; };
 		7B24FB441D3B27E5005275B0 /* OpenGraphParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParser.swift; sourceTree = "<group>"; };
 		7B24FB451D3B27E5005275B0 /* OpenGraphResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphResponseError.swift; sourceTree = "<group>"; };
-		7B24FB4E1D3B2CEC005275B0 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/Mac/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		7B24FB521D3B2DD4005275B0 /* example.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example.com.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B24FB4F1D3B2CEC005275B0 /* OHHTTPStubs.framework in Frameworks */,
 				7B24FB201D3B2583005275B0 /* OpenGraph.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +65,6 @@
 		7B24FB0B1D3B2583005275B0 = {
 			isa = PBXGroup;
 			children = (
-				7B24FB4E1D3B2CEC005275B0 /* OHHTTPStubs.framework */,
 				7B24FB171D3B2583005275B0 /* OpenGraph */,
 				7B24FB231D3B2583005275B0 /* OpenGraphTests */,
 				7B24FB161D3B2583005275B0 /* Products */,
@@ -171,9 +167,11 @@
 				TargetAttributes = {
 					7B24FB141D3B2583005275B0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 					7B24FB1E1D3B2583005275B0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -380,6 +378,7 @@
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -408,6 +407,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SWIFT_VERSION = 3.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -428,6 +428,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -445,6 +446,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

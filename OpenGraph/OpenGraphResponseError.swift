@@ -1,5 +1,5 @@
 import Foundation
 
-public enum OpenGraphResponseError: ErrorType {
-    case UnexpectedStatusCode(Int)
+public enum OpenGraphResponseError: Error {
+    case unexpectedStatusCode(Int)
 }

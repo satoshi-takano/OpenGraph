@@ -1,23 +1,23 @@
 import Foundation
 
 public struct OpenGraph {
-    private let source: [OpenGraphMetadata: String]
+    fileprivate let source: [OpenGraphMetadata: String]
     
-    public static func fetch(url: NSURL, completion: (OpenGraph?, ErrorType?) -> Void) {
-        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: configuration)
+    public static func fetch(url: URL, completion: @escaping (OpenGraph?, Error?) -> Void) {
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
         
-        let task = session.dataTaskWithURL(url) { (data, response, error) in
+        let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
             switch (data, response, error) {
             case (_, _, let error?):
                 completion(nil, error)
                 break
-            case (let data?, let response as NSHTTPURLResponse, _):
+            case (let data?, let response as HTTPURLResponse, _):
                 if !(200..<300).contains(response.statusCode) {
-                    completion(nil, OpenGraphResponseError.UnexpectedStatusCode(response.statusCode))
+                    completion(nil, OpenGraphResponseError.unexpectedStatusCode(response.statusCode))
                 } else {
-                    guard let htmlString = String(data: data, encoding: NSUTF8StringEncoding) else {
-                        completion(nil, OpenGraphParseError.EncodingError)
+                    guard let htmlString = String(data: data, encoding: String.Encoding.utf8) else {
+                        completion(nil, OpenGraphParseError.encodingError)
                         return
                     }
                     
@@ -28,14 +28,14 @@ public struct OpenGraph {
             default:
                 break
             }
-        }
+        }) 
         
         task.resume()
     }
     
     init(htmlString: String, injector: () -> OpenGraphParser = { DefaultOpenGraphParser() }) {
         let parser = injector()
-        source = parser.parse(htmlString)
+        source = parser.parse(htmlString: htmlString)
     }
     
     public subscript (attributeName: OpenGraphMetadata) -> String? {

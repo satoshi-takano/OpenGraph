@@ -1,5 +1,5 @@
 import Foundation
 
-public enum OpenGraphParseError: ErrorType {
-    case EncodingError
+public enum OpenGraphParseError: Error {
+    case encodingError
 }
