@@ -66,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				7B24FB171D3B2583005275B0 /* OpenGraph */,
-				7B24FB231D3B2583005275B0 /* OpenGraphTests */,
+				7B24FB231D3B2583005275B0 /* Tests */,
 				7B24FB161D3B2583005275B0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,14 +94,14 @@
 			path = OpenGraph;
 			sourceTree = "<group>";
 		};
-		7B24FB231D3B2583005275B0 /* OpenGraphTests */ = {
+		7B24FB231D3B2583005275B0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				7B24FB521D3B2DD4005275B0 /* example.com.html */,
 				7B24FB261D3B2583005275B0 /* Info.plist */,
 				7B24FB3D1D3B26C4005275B0 /* OpenGraphTests.swift */,
 			);
-			path = OpenGraphTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,7 +423,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = OpenGraphTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -442,7 +442,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = OpenGraphTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
