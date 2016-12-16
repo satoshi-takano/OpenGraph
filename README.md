@@ -1,4 +1,4 @@
-# OpenGraph
+# A Swift wrapper for the Open Graph protocol (OGP)
 [![Build Status](https://travis-ci.org/satoshi-takano/OpenGraph.svg?branch=feature%2Fci)](https://travis-ci.org/satoshi-takano/OpenGraph) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Platform](https://cocoapod-badges.herokuapp.com/p/OpenGraph/badge.png)](http://cocoadocs.org/docsets/OpenGraph)  
 OpenGraph is a Swift wrapper for the OGP ([Open Graph protocol](http://ogp.me/)).
 You can fetch OpenGraph,then you can access the attributes with subscript and the key provided by enum type.
