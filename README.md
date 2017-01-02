@@ -11,12 +11,41 @@ OpenGraph.fetch(url) { og, error in
 }
 ```
 
+If you want to use Rx interface, use an extension below.
+```swift
+extension OpenGraph {
+    static func rx_fetch(url: URL?) -> Observable<OpenGraph?> {
+        return Observable.create { observer in
+            guard let url = url else {
+                observer.onCompleted()
+                return Disposables.create()
+            }
+            
+            OpenGraph.fetch(url: url) { og, err in
+                if let og = og {
+                    observer.onNext(og)
+                }
+                if let err = err {
+                    observer.onError(err)
+                }
+                
+                observer.onCompleted()
+            }
+            
+            return Disposables.create()
+        }
+    }
+}
+```
+
 ## Requirements
 - Swift 3.0
 - iOS 8.0 or later
 - macOS 10.9 or later
 - tvOS 9.0 or later
 - watchOS 2.0 or later
+
+If you use Swift 2.2 or 2.3, use [older version of OpenGraph](https://github.com/satoshi-takano/OpenGraph/tree/0.1.0).
 
 ## Installation
 ### CocoaPods
