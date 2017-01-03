@@ -3,11 +3,22 @@ import Foundation
 public struct OpenGraph {
     fileprivate let source: [OpenGraphMetadata: String]
     
-    public static func fetch(url: URL, completion: @escaping (OpenGraph?, Error?) -> Void) {
+    public static func fetch(url: URL,header:[String:String], completion: @escaping (OpenGraph?, Error?) -> Void) {
+        
+        var mutableURLRequest = URLRequest(url: url)
+        mutableURLRequest.setValue("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36", forHTTPHeaderField: "User-Agent")
+        for hkey in header.keys {
+            let value:String! = header[hkey]
+            if value != nil {
+                mutableURLRequest.setValue(value, forHTTPHeaderField: hkey)
+            }
+        }
+        
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
         
-        let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
+        
+        let task = session.dataTask(with: mutableURLRequest, completionHandler: { (data, response, error) in
             switch (data, response, error) {
             case (_, _, let error?):
                 completion(nil, error)
