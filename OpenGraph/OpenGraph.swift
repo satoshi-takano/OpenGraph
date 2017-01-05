@@ -35,7 +35,7 @@ public struct OpenGraph {
         task.resume()
     }
     
-    internal static func handleFetchResult(data:Data?,response:URLResponse?,error:Error?,callback: @escaping (OpenGraph?, Error?) -> Void){
+    private static func handleFetchResult(data: Data?, response: URLResponse?, error: Error?, callback: @escaping (OpenGraph?, Error?) -> Void){
         switch (data, response, error) {
         case (_, _, let error?):
             callback(nil, error)
