@@ -14,12 +14,11 @@ public struct OpenGraph {
         task.resume()
     }
     
-    public static func fetch(url: URL,header:[String:String], completion: @escaping (OpenGraph?, Error?) -> Void) {
+    public static func fetch(url: URL, headers: [String:String], completion: @escaping (OpenGraph?, Error?) -> Void) {
         
         var mutableURLRequest = URLRequest(url: url)
-        mutableURLRequest.setValue("Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36", forHTTPHeaderField: "User-Agent")
-        for hkey in header.keys {
-            let value:String! = header[hkey]
+        for hkey in headers.keys {
+            let value:String! = headers[hkey]
             if value != nil {
                 mutableURLRequest.setValue(value, forHTTPHeaderField: hkey)
             }
@@ -35,7 +34,7 @@ public struct OpenGraph {
         task.resume()
     }
     
-    internal static func handleFetchResult(data:Data?,response:URLResponse?,error:Error?,callback: @escaping (OpenGraph?, Error?) -> Void){
+    private static func handleFetchResult(data: Data?, response: URLResponse?, error: Error?, callback: @escaping (OpenGraph?, Error?) -> Void){
         switch (data, response, error) {
         case (_, _, let error?):
             callback(nil, error)

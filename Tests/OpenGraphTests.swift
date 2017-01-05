@@ -15,6 +15,36 @@ class OpenGraphTests: XCTestCase {
         OHHTTPStubs.removeAllStubs()
     }
     
+    func testCustomHeader() {
+        let responseArrived = expectation(description: "response of async request has arrived")
+        
+        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
+            return true
+        }) { request -> OHHTTPStubsResponse in
+            let path = Bundle(for: type(of: self)).path(forResource: "example.com", ofType: "html")
+            return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
+        }
+        
+        let url = URL(string: "https://www.example.com")!
+        var og: OpenGraph!
+        var error: Error?
+        let headers = ["User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"]
+        OpenGraph.fetch(url: url, headers: headers) { (_og, _error) in
+            og = _og
+            error = _error
+            responseArrived.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { _ in
+            XCTAssert(og[.title] == "example.com title")
+            XCTAssert(og[.type] == "website")
+            XCTAssert(og[.url] == "https://www.example.com")
+            XCTAssert(og[.image] == "https://www.example.com/images/example.png")
+            
+            XCTAssert(error == nil)
+        }
+    }
+    
     func testFetching() {
         let responseArrived = expectation(description: "response of async request has arrived")
         
