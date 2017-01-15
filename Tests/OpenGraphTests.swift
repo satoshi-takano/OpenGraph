@@ -15,15 +15,19 @@ class OpenGraphTests: XCTestCase {
         OHHTTPStubs.removeAllStubs()
     }
     
-    func testCustomHeader() {
-        let responseArrived = expectation(description: "response of async request has arrived")
-        
+    func setupStub(htmlFileName: String) {
         OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
             return true
         }) { request -> OHHTTPStubsResponse in
-            let path = Bundle(for: type(of: self)).path(forResource: "example.com", ofType: "html")
+            let path = Bundle(for: type(of: self)).path(forResource: htmlFileName, ofType: "html")
             return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
         }
+    }
+    
+    func testCustomHeader() {
+        let responseArrived = expectation(description: "response of async request has arrived")
+        
+        setupStub(htmlFileName: "example.com")
         
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph!
@@ -48,12 +52,7 @@ class OpenGraphTests: XCTestCase {
     func testFetching() {
         let responseArrived = expectation(description: "response of async request has arrived")
         
-        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
-                return true
-            }) { request -> OHHTTPStubsResponse in
-                let path = Bundle(for: type(of: self)).path(forResource: "example.com", ofType: "html")
-                return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
-            }
+        setupStub(htmlFileName: "example.com")
         
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph!
@@ -74,16 +73,35 @@ class OpenGraphTests: XCTestCase {
         }
     }
     
+    func testEmptyOGP() {
+        let responseArrived = expectation(description: "response of async request has arrived")
+        
+        setupStub(htmlFileName: "empty_ogp")
+        
+        let url = URL(string: "https://www.example2.com")!
+        var og: OpenGraph!
+        var error: Error?
+        OpenGraph.fetch(url: url) { _og, _error in
+            og = _og
+            error = _error
+            responseArrived.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { _ in
+            XCTAssert(og[.title] == nil)
+            XCTAssert(og[.type] == nil)
+            XCTAssert(og[.url] == nil)
+            XCTAssert(og[.image] == nil)
+            
+            XCTAssert(error == nil)
+        }
+    }
+    
     // Detect og:xxx also when order of attributes are reversed.
     func testFetching2() {
         let responseArrived = expectation(description: "response of async request has arrived")
         
-        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
-            return true
-        }) { request -> OHHTTPStubsResponse in
-            let path = Bundle(for: type(of: self)).path(forResource: "example2.com", ofType: "html")
-            return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
-        }
+        setupStub(htmlFileName: "example2.com")
         
         let url = URL(string: "https://www.example2.com")!
         var og: OpenGraph!
@@ -108,12 +126,7 @@ class OpenGraphTests: XCTestCase {
     func testFetching3() {
         let responseArrived = expectation(description: "response of async request has arrived")
         
-        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
-            return true
-        }) { request -> OHHTTPStubsResponse in
-            let path = Bundle(for: type(of: self)).path(forResource: "example3.com", ofType: "html")
-            return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
-        }
+        setupStub(htmlFileName: "example3.com")
         
         let url = URL(string: "https://www.example3.com")!
         var og: OpenGraph!

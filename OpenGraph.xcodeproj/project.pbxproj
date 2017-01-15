@@ -18,6 +18,7 @@
 		7B24FB491D3B27E5005275B0 /* OpenGraphParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB441D3B27E5005275B0 /* OpenGraphParser.swift */; };
 		7B24FB4A1D3B27E5005275B0 /* OpenGraphResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB451D3B27E5005275B0 /* OpenGraphResponseError.swift */; };
 		7B24FB531D3B2DD4005275B0 /* example.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B24FB521D3B2DD4005275B0 /* example.com.html */; };
+		CBEA99A61E2B65F40066452C /* empty_ogp.html in Resources */ = {isa = PBXBuildFile; fileRef = CBEA99A41E2B63980066452C /* empty_ogp.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		7B24FB441D3B27E5005275B0 /* OpenGraphParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParser.swift; sourceTree = "<group>"; };
 		7B24FB451D3B27E5005275B0 /* OpenGraphResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphResponseError.swift; sourceTree = "<group>"; };
 		7B24FB521D3B2DD4005275B0 /* example.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example.com.html; sourceTree = "<group>"; };
+		CBEA99A41E2B63980066452C /* empty_ogp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = empty_ogp.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				7B24FB521D3B2DD4005275B0 /* example.com.html */,
 				6A7310FC1E279C7E00CE1756 /* example2.com.html */,
 				6A7310FB1E279C7E00CE1756 /* example3.com.html */,
+				CBEA99A41E2B63980066452C /* empty_ogp.html */,
 				7B24FB261D3B2583005275B0 /* Info.plist */,
 				7B24FB3D1D3B26C4005275B0 /* OpenGraphTests.swift */,
 			);
@@ -205,8 +208,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A7310FD1E279C7E00CE1756 /* example3.com.html in Resources */,
-				6A7310FE1E279C7E00CE1756 /* example2.com.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBEA99A61E2B65F40066452C /* empty_ogp.html in Resources */,
 				6A7310FF1E279D5D00CE1756 /* example3.com.html in Resources */,
 				6A7311001E279D5D00CE1756 /* example2.com.html in Resources */,
 				7B24FB531D3B2DD4005275B0 /* example.com.html in Resources */,
