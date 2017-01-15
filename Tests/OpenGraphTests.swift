@@ -27,7 +27,7 @@ class OpenGraphTests: XCTestCase {
     func testCustomHeader() {
         let responseArrived = expectation(description: "response of async request has arrived")
         
-        setupStub(htmlFileName: "example.com")
+        setupStub(htmlFileName: "ogp")
         
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph!
@@ -52,7 +52,7 @@ class OpenGraphTests: XCTestCase {
     func testFetching() {
         let responseArrived = expectation(description: "response of async request has arrived")
         
-        setupStub(htmlFileName: "example.com")
+        setupStub(htmlFileName: "ogp")
         
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph!
@@ -68,7 +68,7 @@ class OpenGraphTests: XCTestCase {
             XCTAssert(og[.type] == "website")
             XCTAssert(og[.url] == "https://www.example.com")
             XCTAssert(og[.image] == "https://www.example.com/images/example.png")
-            
+            XCTAssert(og[.description] == "example.com description")
             XCTAssert(error == nil)
         }
     }
@@ -78,7 +78,7 @@ class OpenGraphTests: XCTestCase {
         
         setupStub(htmlFileName: "empty_ogp")
         
-        let url = URL(string: "https://www.example2.com")!
+        let url = URL(string: "https://www.example.com")!
         var og: OpenGraph!
         var error: Error?
         OpenGraph.fetch(url: url) { _og, _error in
@@ -92,56 +92,6 @@ class OpenGraphTests: XCTestCase {
             XCTAssert(og[.type] == nil)
             XCTAssert(og[.url] == nil)
             XCTAssert(og[.image] == nil)
-            
-            XCTAssert(error == nil)
-        }
-    }
-    
-    // Detect og:xxx also when order of attributes are reversed.
-    func testFetching2() {
-        let responseArrived = expectation(description: "response of async request has arrived")
-        
-        setupStub(htmlFileName: "example2.com")
-        
-        let url = URL(string: "https://www.example2.com")!
-        var og: OpenGraph!
-        var error: Error?
-        OpenGraph.fetch(url: url) { _og, _error in
-            og = _og
-            error = _error
-            responseArrived.fulfill()
-        }
-        
-        waitForExpectations(timeout: 10) { _ in
-            XCTAssert(og[.title] == "example2.com title")
-            XCTAssert(og[.type] == "website2")
-            XCTAssert(og[.url] == "https://www.example2.com")
-            XCTAssert(og[.image] == "https://www.example2.com/images/example2.png")
-            
-            XCTAssert(error == nil)
-        }
-    }
-    
-    // When the meta tag contains other attributes.
-    func testFetching3() {
-        let responseArrived = expectation(description: "response of async request has arrived")
-        
-        setupStub(htmlFileName: "example3.com")
-        
-        let url = URL(string: "https://www.example3.com")!
-        var og: OpenGraph!
-        var error: Error?
-        OpenGraph.fetch(url: url) { _og, _error in
-            og = _og
-            error = _error
-            responseArrived.fulfill()
-        }
-        
-        waitForExpectations(timeout: 10) { _ in
-            XCTAssert(og[.title] == "example3.com title")
-            XCTAssert(og[.type] == "website3")
-            XCTAssert(og[.url] == "https://www.example3.com")
-            XCTAssert(og[.image] == "https://www.example3.com/images/example3.png")
             
             XCTAssert(error == nil)
         }
