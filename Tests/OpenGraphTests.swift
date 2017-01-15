@@ -74,6 +74,66 @@ class OpenGraphTests: XCTestCase {
         }
     }
     
+    // Detect og:xxx also when order of attributes are reversed.
+    func testFetching2() {
+        let responseArrived = expectation(description: "response of async request has arrived")
+        
+        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
+            return true
+        }) { request -> OHHTTPStubsResponse in
+            let path = Bundle(for: type(of: self)).path(forResource: "example2.com", ofType: "html")
+            return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
+        }
+        
+        let url = URL(string: "https://www.example2.com")!
+        var og: OpenGraph!
+        var error: Error?
+        OpenGraph.fetch(url: url) { _og, _error in
+            og = _og
+            error = _error
+            responseArrived.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { _ in
+            XCTAssert(og[.title] == "example2.com title")
+            XCTAssert(og[.type] == "website2")
+            XCTAssert(og[.url] == "https://www.example2.com")
+            XCTAssert(og[.image] == "https://www.example2.com/images/example2.png")
+            
+            XCTAssert(error == nil)
+        }
+    }
+    
+    // When the meta tag contains other attributes.
+    func testFetching3() {
+        let responseArrived = expectation(description: "response of async request has arrived")
+        
+        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
+            return true
+        }) { request -> OHHTTPStubsResponse in
+            let path = Bundle(for: type(of: self)).path(forResource: "example3.com", ofType: "html")
+            return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
+        }
+        
+        let url = URL(string: "https://www.example3.com")!
+        var og: OpenGraph!
+        var error: Error?
+        OpenGraph.fetch(url: url) { _og, _error in
+            og = _og
+            error = _error
+            responseArrived.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10) { _ in
+            XCTAssert(og[.title] == "example3.com title")
+            XCTAssert(og[.type] == "website3")
+            XCTAssert(og[.url] == "https://www.example3.com")
+            XCTAssert(og[.image] == "https://www.example3.com/images/example3.png")
+            
+            XCTAssert(error == nil)
+        }
+    }
+
     func testHTTPResponseError() {
         let responseArrived = expectation(description: "response of async request has arrived")
         
