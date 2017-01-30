@@ -13,7 +13,7 @@ public enum OpenGraphMetadata: String {
     case determiner
     case locale
     case localeAlternate = "locale:alternate"
-    case site_name
+    case siteName = "site_name"
     case video
     
     // Structured Properties
