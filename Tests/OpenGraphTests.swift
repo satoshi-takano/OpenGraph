@@ -40,7 +40,7 @@ class OpenGraphTests: XCTestCase {
         }
         
         waitForExpectations(timeout: 10) { _ in
-            XCTAssert(og[.title] == "example.com title")
+            XCTAssert(og[.title] == " < example.com title > ")
             XCTAssert(og[.type] == "website")
             XCTAssert(og[.url] == "https://www.example.com")
             XCTAssert(og[.image] == "https://www.example.com/images/example.png")
