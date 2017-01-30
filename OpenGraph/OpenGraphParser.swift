@@ -6,36 +6,57 @@ public protocol OpenGraphParser {
 
 extension OpenGraphParser {
     func parse(htmlString: String) -> [OpenGraphMetadata: String] {
-        // matching
-        let pattern1 = "<meta\\s.*?property=\"og:(\\w+?)\".*?/?>"
-        let pattern2 = "content=\"([^<>]*?)\""
-        let regexp1  = try! NSRegularExpression(pattern: pattern1, options: [.dotMatchesLineSeparators])
-        let regexp2  = try! NSRegularExpression(pattern: pattern2, options: [.dotMatchesLineSeparators])
-        let matches1 = regexp1.matches(in: htmlString,
+        // extract meta tag
+        let metatagRegex  = try! NSRegularExpression(
+            pattern: "<meta(?:\".*?\"|\'.*?\'|[^\'\"])*?>",
+            options: [.dotMatchesLineSeparators]
+        )
+        let metaTagMatches = metatagRegex.matches(in: htmlString,
                                        options: [],
                                        range: NSMakeRange(0, htmlString.characters.count))
-        if matches1.isEmpty {
+        if metaTagMatches.isEmpty {
             return [:]
         }
 
+        // prepare regular expressions to extract og property and content.
+        let propertyRegexp = try! NSRegularExpression(
+            pattern: "\\sproperty=(?:\"|\')og:([a-zA_Z:]+?)(?:\"|\')",
+            options: []
+        )
+        let contentRegexp = try! NSRegularExpression(
+            pattern: "\\scontent=(?:\"|\')(.*?)(?:\"|\')",
+            options: []
+        )
+        
         // create attribute dictionary
         let nsString = htmlString as NSString
-        let attributes = matches1.reduce([OpenGraphMetadata: String]()) { (attributes, result) -> [OpenGraphMetadata: String] in
+        let attributes = metaTagMatches.reduce([OpenGraphMetadata: String]()) { (attributes, result) -> [OpenGraphMetadata: String] in
             var copiedAttributes = attributes
-            let property = nsString.substring(with: result.rangeAt(1))
-            let content  = { () -> String in
-                let metaTag  = nsString.substring(with: result.rangeAt(0))
-                let matches2 = regexp2.matches(in: metaTag,
+            
+            let property = { () -> (name: String, content: String)? in
+                let metaTag = nsString.substring(with: result.rangeAt(0))
+                let nsMetaTag = metaTag as NSString
+                
+                let propertyMatches = propertyRegexp.matches(in: metaTag,
                                                options: [],
                                                range: NSMakeRange(0, metaTag.characters.count))
-                guard let result = matches2.first else { return "" }
-                return (metaTag as NSString).substring(with: result.rangeAt(1))
+                
+                guard let propertyResult = propertyMatches.first else { return nil }
+                
+                
+                let contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.characters.count))
+                
+                guard let contentResult = contentMatches.first else { return nil }
+                
+                let property = nsMetaTag.substring(with: propertyResult.rangeAt(1))
+                let content = nsMetaTag.substring(with: contentResult.rangeAt(1))
+                return (name: property, content: content)
             }()
-
-            guard let metadata = OpenGraphMetadata(rawValue: property) else {
-                return copiedAttributes
+            
+            if let property = property, let metadata = OpenGraphMetadata(rawValue: property.name) {
+                copiedAttributes[metadata] = property.content
             }
-            copiedAttributes[metadata] = content
+            
             return copiedAttributes
         }
         
