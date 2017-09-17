@@ -34,7 +34,7 @@ extension OpenGraphParser {
             var copiedAttributes = attributes
             
             let property = { () -> (name: String, content: String)? in
-                let metaTag = nsString.substring(with: result.rangeAt(0))
+                let metaTag = nsString.substring(with: result.range(at: 0))
                 let nsMetaTag = metaTag as NSString
                 
                 let propertyMatches = propertyRegexp.matches(in: metaTag,
@@ -48,8 +48,8 @@ extension OpenGraphParser {
                 
                 guard let contentResult = contentMatches.first else { return nil }
                 
-                let property = nsMetaTag.substring(with: propertyResult.rangeAt(1))
-                let content = nsMetaTag.substring(with: contentResult.rangeAt(1))
+                let property = nsMetaTag.substring(with: propertyResult.range(at: 1))
+                let content = nsMetaTag.substring(with: contentResult.range(at: 1))
                 return (name: property, content: content)
             }()
             
