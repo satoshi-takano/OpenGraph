@@ -13,7 +13,7 @@ extension OpenGraphParser {
         )
         let metaTagMatches = metatagRegex.matches(in: htmlString,
                                        options: [],
-                                       range: NSMakeRange(0, htmlString.characters.count))
+                                       range: NSMakeRange(0, htmlString.count))
         if metaTagMatches.isEmpty {
             return [:]
         }
@@ -39,12 +39,12 @@ extension OpenGraphParser {
                 
                 let propertyMatches = propertyRegexp.matches(in: metaTag,
                                                options: [],
-                                               range: NSMakeRange(0, metaTag.characters.count))
+                                               range: NSMakeRange(0, metaTag.count))
                 
                 guard let propertyResult = propertyMatches.first else { return nil }
                 
                 
-                let contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.characters.count))
+                let contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.count))
                 
                 guard let contentResult = contentMatches.first else { return nil }
                 
