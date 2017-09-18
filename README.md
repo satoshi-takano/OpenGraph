@@ -39,7 +39,7 @@ extension OpenGraph {
 ```
 
 ## Requirements
-- Swift 3.0
+- Xcode 9 / Swift 4.0 or 3.2 (If you use Xcode 8.x, you can use [1.0.2](https://github.com/satoshi-takano/OpenGraph/releases/tag/1.0.2).)
 - iOS 8.0 or later
 - macOS 10.9 or later
 - tvOS 9.0 or later

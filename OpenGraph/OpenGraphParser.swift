@@ -13,7 +13,7 @@ extension OpenGraphParser {
         )
         let metaTagMatches = metatagRegex.matches(in: htmlString,
                                        options: [],
-                                       range: NSMakeRange(0, htmlString.characters.count))
+                                       range: NSMakeRange(0, htmlString.count))
         if metaTagMatches.isEmpty {
             return [:]
         }
@@ -34,29 +34,24 @@ extension OpenGraphParser {
             var copiedAttributes = attributes
             
             let property = { () -> (name: String, content: String)? in
-                let metaTag = nsString.substring(with: result.rangeAt(0))
-                let nsMetaTag = metaTag as NSString
-                
+                let metaTag = nsString.substring(with: result.range(at: 0))
                 let propertyMatches = propertyRegexp.matches(in: metaTag,
                                                options: [],
-                                               range: NSMakeRange(0, metaTag.characters.count))
-                
+                                               range: NSMakeRange(0, metaTag.count))
                 guard let propertyResult = propertyMatches.first else { return nil }
                 
-                
-                let contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.characters.count))
-                
+                let contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.count))
                 guard let contentResult = contentMatches.first else { return nil }
                 
-                let property = nsMetaTag.substring(with: propertyResult.rangeAt(1))
-                let content = nsMetaTag.substring(with: contentResult.rangeAt(1))
+                let nsMetaTag = metaTag as NSString
+                let property = nsMetaTag.substring(with: propertyResult.range(at: 1))
+                let content = nsMetaTag.substring(with: contentResult.range(at: 1))
+                
                 return (name: property, content: content)
             }()
-            
             if let property = property, let metadata = OpenGraphMetadata(rawValue: property.name) {
                 copiedAttributes[metadata] = property.content
             }
-            
             return copiedAttributes
         }
         

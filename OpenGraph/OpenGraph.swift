@@ -6,16 +6,13 @@ public struct OpenGraph {
     public static func fetch(url: URL, completion: @escaping (OpenGraph?, Error?) -> Void) {
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
-        
         let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
             handleFetchResult(data: data, response: response, error: error, callback: completion)
         })
-        
         task.resume()
     }
     
     public static func fetch(url: URL, headers: [String:String], completion: @escaping (OpenGraph?, Error?) -> Void) {
-        
         var mutableURLRequest = URLRequest(url: url)
         for hkey in headers.keys {
             let value:String! = headers[hkey]
@@ -26,11 +23,9 @@ public struct OpenGraph {
         
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
-        
         let task = session.dataTask(with: mutableURLRequest, completionHandler: { (data, response, error) in
             handleFetchResult(data: data, response: response, error: error, callback: completion)
         }) 
-        
         task.resume()
     }
     
