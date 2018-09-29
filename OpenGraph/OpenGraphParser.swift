@@ -24,7 +24,7 @@ extension OpenGraphParser {
             options: []
         )
         let contentRegexp = try! NSRegularExpression(
-            pattern: "\\scontent=(?:\"|\')(.*?)(?:\"|\')",
+            pattern: "\\scontent=(?:\"|\')(.*?)(?:\"|\')(?:\\s|>)",
             options: []
         )
         
