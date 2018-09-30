@@ -24,7 +24,7 @@ extension OpenGraphParser {
             options: []
         )
         let contentRegexp = try! NSRegularExpression(
-            pattern: "\\scontent=(?:\"|\')(.*?)(?:\"|\')(?:\\s|>)",
+            pattern: "\\scontent=\"(.*?)\"",
             options: []
         )
         
@@ -40,7 +40,14 @@ extension OpenGraphParser {
                                                range: NSMakeRange(0, metaTag.count))
                 guard let propertyResult = propertyMatches.first else { return nil }
                 
-                let contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.count))
+                var contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.count))
+                if contentMatches.first == nil {
+                    let contentRegexp = try! NSRegularExpression(
+                        pattern: "\\scontent='(.*?)'",
+                        options: []
+                    )
+                    contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.count))
+                }
                 guard let contentResult = contentMatches.first else { return nil }
                 
                 let nsMetaTag = metaTag as NSString

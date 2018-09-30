@@ -155,4 +155,16 @@ class OpenGraphTests: XCTestCase {
             XCTAssert(error! is OpenGraphParseError)
         }
     }
+
+    func testParsing() {
+        var html = "<meta content=\"It's a description\" property=\"og:description\" />"
+        XCTAssert(OpenGraph(htmlString: html)[.description] == "It's a description")
+        html = "<meta property=\"og:title\" content=\"It's a title contains single quote\"/>"
+        XCTAssert(OpenGraph(htmlString: html)[.title] == "It's a title contains single quote")
+
+        html = "<meta content='It&#39;s a description' property='og:description' />"
+        XCTAssert(OpenGraph(htmlString: html)[.description] == "It&#39;s a description")
+        html = "<meta content='It is a title contains double quote \"' property='og:title' />"
+        XCTAssert(OpenGraph(htmlString: html)[.title] == "It is a title contains double quote \"")
+    }
 }
