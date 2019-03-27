@@ -70,7 +70,7 @@ public protocol CaseIterable {
     static var allCases: AllCases { get }
 }
 extension CaseIterable where Self: Hashable {
-    static var allCases: [Self] {
+    public static var allCases: [Self] {
         return [Self](AnySequence { () -> AnyIterator<Self> in
             var raw = 0
             var first: Self?
