@@ -1,7 +1,7 @@
 import Foundation
 
 public struct OpenGraph {
-    fileprivate let source: [OpenGraphMetadata: String]
+    public let source: [OpenGraphMetadata: String]
     
     public static func fetch(url: URL, completion: @escaping (OpenGraph?, Error?) -> Void) {
         let configuration = URLSessionConfiguration.default
