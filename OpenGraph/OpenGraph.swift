@@ -1,54 +1,39 @@
 import Foundation
 
 public struct OpenGraph {
+    
     public let source: [OpenGraphMetadata: String]
     
-    public static func fetch(url: URL, completion: @escaping (OpenGraph?, Error?) -> Void) {
+    public static func fetch(url: URL, headers: [String: String]? = nil, completion: @escaping (Result<OpenGraph, Error>) -> Void) {
+        var mutableURLRequest = URLRequest(url: url)
+        headers?.compactMapValues { $0 }.forEach {
+            mutableURLRequest.setValue($1, forHTTPHeaderField: $0)
+        }
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
-        let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
-            handleFetchResult(data: data, response: response, error: error, callback: completion)
+        let task = session.dataTask(with: mutableURLRequest, completionHandler: { data, response, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                handleFetchResult(data: data, response: response, completion: completion)
+            }
         })
         task.resume()
     }
     
-    public static func fetch(url: URL, headers: [String:String], completion: @escaping (OpenGraph?, Error?) -> Void) {
-        var mutableURLRequest = URLRequest(url: url)
-        for hkey in headers.keys {
-            let value:String! = headers[hkey]
-            if value != nil {
-                mutableURLRequest.setValue(value, forHTTPHeaderField: hkey)
-            }
+    private static func handleFetchResult(data: Data?, response: URLResponse?, completion: @escaping (Result<OpenGraph, Error>) -> Void) {
+        guard let data = data, let response = response as? HTTPURLResponse else {
+            return
         }
-        
-        let configuration = URLSessionConfiguration.default
-        let session = URLSession(configuration: configuration)
-        let task = session.dataTask(with: mutableURLRequest, completionHandler: { (data, response, error) in
-            handleFetchResult(data: data, response: response, error: error, callback: completion)
-        }) 
-        task.resume()
-    }
-    
-    private static func handleFetchResult(data: Data?, response: URLResponse?, error: Error?, callback: @escaping (OpenGraph?, Error?) -> Void){
-        switch (data, response, error) {
-        case (_, _, let error?):
-            callback(nil, error)
-            break
-        case (let data?, let response as HTTPURLResponse, _):
-            if !(200..<300).contains(response.statusCode) {
-                callback(nil, OpenGraphResponseError.unexpectedStatusCode(response.statusCode))
-            } else {
-                guard let htmlString = String(data: data, encoding: String.Encoding.utf8) else {
-                    callback(nil, OpenGraphParseError.encodingError)
-                    return
-                }
-                
-                let og = OpenGraph(htmlString: htmlString)
-                callback(og, error)
+        if !(200..<300).contains(response.statusCode) {
+            completion(.failure(OpenGraphResponseError.unexpectedStatusCode(response.statusCode)))
+        } else {
+            guard let htmlString = String(data: data, encoding: String.Encoding.utf8) else {
+                completion(.failure(OpenGraphParseError.encodingError))
+                return
             }
-            break
-        default:
-            break
+            let og = OpenGraph(htmlString: htmlString)
+            completion(.success(og))
         }
     }
     
