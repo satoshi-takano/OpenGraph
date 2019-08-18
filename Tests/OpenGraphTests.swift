@@ -33,9 +33,11 @@ class OpenGraphTests: XCTestCase {
         var og: OpenGraph!
         var error: Error?
         let headers = ["User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"]
-        OpenGraph.fetch(url: url, headers: headers) { (_og, _error) in
-            og = _og
-            error = _error
+        OpenGraph.fetch(url: url, headers: headers) { result in
+            switch result {
+            case .success(let _og): og = _og
+            case .failure(let _error): error = _error
+            }
             responseArrived.fulfill()
         }
         
@@ -57,9 +59,11 @@ class OpenGraphTests: XCTestCase {
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph!
         var error: Error?
-        OpenGraph.fetch(url: url) { _og, _error in
-            og = _og
-            error = _error
+        OpenGraph.fetch(url: url) { result in
+            switch result {
+            case .success(let _og): og = _og
+            case .failure(let _error): error = _error
+            }
             responseArrived.fulfill()
         }
         
@@ -82,9 +86,11 @@ class OpenGraphTests: XCTestCase {
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph!
         var error: Error?
-        OpenGraph.fetch(url: url) { _og, _error in
-            og = _og
-            error = _error
+        OpenGraph.fetch(url: url) { result in
+            switch result {
+            case .success(let _og): og = _og
+            case .failure(let _error): error = _error
+            }
             responseArrived.fulfill()
         }
         
@@ -110,9 +116,11 @@ class OpenGraphTests: XCTestCase {
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph?
         var error: Error?
-        OpenGraph.fetch(url: url) { _og, _error in
-            og = _og
-            error = _error
+        OpenGraph.fetch(url: url) { result in
+            switch result {
+            case .success(let _og): og = _og
+            case .failure(let _error): error = _error
+            }
             responseArrived.fulfill()
         }
         
@@ -144,9 +152,11 @@ class OpenGraphTests: XCTestCase {
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph?
         var error: Error?
-        OpenGraph.fetch(url: url) { _og, _error in
-            og = _og
-            error = _error
+        OpenGraph.fetch(url: url) { result in
+            switch result {
+            case .success(let _og): og = _og
+            case .failure(let _error): error = _error
+            }
             responseArrived.fulfill()
         }
         

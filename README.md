@@ -3,35 +3,39 @@
 OpenGraph is a Swift wrapper for the OGP ([Open Graph protocol](http://ogp.me/)).
 You can fetch OpenGraph,then you can access the attributes with subscript and the key provided by enum type.
 ```swift
-OpenGraph.fetch(url) { og, error in
-    print(og?[.title]) // => og:title of the web site
-    print(og?[.type])  // => og:type of the web site
-    print(og?[.image]) // => og:image of the web site
-    print(og?[.url])   // => og:url of the web site
+OpenGraph.fetch(url: url) { result in
+    switch result {
+    case .success(let og):
+        print(og[.title]) // => og:title of the web site
+        print(og[.type])  // => og:type of the web site
+        print(og[.image]) // => og:image of the web site
+        print(og[.url])   // => og:url of the web site
+    case .failure(let error):
+        print(error)
+    }
 }
 ```
 
 If you want to use Rx interface, use an extension below.
 ```swift
-extension OpenGraph {
-    static func rx_fetch(url: URL?) -> Observable<OpenGraph?> {
+extension Reactive where Base: OpenGraph {
+    static func fetch(url: URL?) -> Observable<OpenGraph> {
         return Observable.create { observer in
             guard let url = url else {
                 observer.onCompleted()
                 return Disposables.create()
             }
-            
-            OpenGraph.fetch(url: url) { og, err in
-                if let og = og {
+
+            OpenGraph.fetch(url: url) { result in
+                switch result {
+                case .success(let og):
                     observer.onNext(og)
+                case .failure(let error):
+                    observer.onError(error)
                 }
-                if let err = err {
-                    observer.onError(err)
-                }
-                
                 observer.onCompleted()
             }
-            
+
             return Disposables.create()
         }
     }
