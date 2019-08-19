@@ -18,6 +18,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 OpenGraph is a Swift wrapper for the Open Graph protocol. You can fetch OpenGraph,then you can access the attributes with subscript and the key provided by enum type.
 DESC
 
+  s.swift_versions            = ['5.0']
   s.ios.deployment_target     = "8.0"
   s.source                    = { :git => "https://github.com/satoshi-takano/OpenGraph.git", :tag => s.version.to_s }
   s.source_files              = "OpenGraph/*.{swift,h,m}"
