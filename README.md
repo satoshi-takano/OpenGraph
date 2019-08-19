@@ -43,13 +43,13 @@ extension Reactive where Base: OpenGraph {
 ```
 
 ## Requirements
-- Xcode 9 / Swift 4.0 or 3.2 (If you use Xcode 8.x, you can use [1.0.2](https://github.com/satoshi-takano/OpenGraph/releases/tag/1.0.2).)
+- Xcode 11 / Swift 5.0 (If you use Xcode 10.x, you can use [1.1.0](https://github.com/satoshi-takano/OpenGraph/releases/tag/1.1.0).)
 - iOS 8.0 or later
 - macOS 10.9 or later
 - tvOS 9.0 or later
 - watchOS 2.0 or later
 
-If you use Swift 2.2 or 2.3, use [older version of OpenGraph](https://github.com/satoshi-takano/OpenGraph/tree/0.1.0).
+If you use Swift 2.2 or 2.3, use [older version of OpenGraph](https://github.com/satoshi-takano/OpenGraph/releases).
 
 ## Installation
 ### CocoaPods
