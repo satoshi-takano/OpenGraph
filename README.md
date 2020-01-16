@@ -1,7 +1,7 @@
-# A Swift wrapper for the Open Graph protocol (OGP)
+# A Swift wrapper for Open Graph protocol (OGP)
 [![Build Status](https://travis-ci.org/satoshi-takano/OpenGraph.svg?branch=feature%2Fci)](https://travis-ci.org/satoshi-takano/OpenGraph) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Platform](https://cocoapod-badges.herokuapp.com/p/OpenGraph/badge.png)](http://cocoadocs.org/docsets/OpenGraph)  
-OpenGraph is a Swift wrapper for the OGP ([Open Graph protocol](http://ogp.me/)).
-You can fetch OpenGraph,then you can access the attributes with subscript and the key provided by enum type.
+OpenGraph is a Swift wrapper for OGP ([Open Graph protocol](http://ogp.me/)).
+You can fetch OpenGraph and get access to the attributes using subscript and enum cases as follows.
 ```swift
 OpenGraph.fetch(url: url) { result in
     switch result {
@@ -16,7 +16,7 @@ OpenGraph.fetch(url: url) { result in
 }
 ```
 
-If you want to use Rx interface, use an extension below.
+If you want to use Rx interface, copy an extension below to your own project.
 ```swift
 extension Reactive where Base: OpenGraph {
     static func fetch(url: URL?) -> Observable<OpenGraph> {
