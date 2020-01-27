@@ -4,7 +4,8 @@ public struct OpenGraph {
     
     public let source: [OpenGraphMetadata: String]
     
-    public static func fetch(url: URL, headers: [String: String]? = nil, completion: @escaping (Result<OpenGraph, Error>) -> Void) {
+    @discardableResult
+    public static func fetch(url: URL, headers: [String: String]? = nil, completion: @escaping (Result<OpenGraph, Error>) -> Void) -> URLSessionDataTask {
         var mutableURLRequest = URLRequest(url: url)
         headers?.compactMapValues { $0 }.forEach {
             mutableURLRequest.setValue($1, forHTTPHeaderField: $0)
@@ -19,6 +20,7 @@ public struct OpenGraph {
             }
         })
         task.resume()
+        return task
     }
     
     private static func handleFetchResult(data: Data?, response: URLResponse?, completion: @escaping (Result<OpenGraph, Error>) -> Void) {
