@@ -20,11 +20,11 @@ extension OpenGraphParser {
 
         // prepare regular expressions to extract og property and content.
         let propertyRegexp = try! NSRegularExpression(
-            pattern: "\\sproperty=(?:\"|\')og:([a-zA_Z:]+?)(?:\"|\')",
+            pattern: "\\sproperty=(?:\"|\')*og:([a-zA_Z:]+)(?:\"|\')*",
             options: []
         )
         let contentRegexp = try! NSRegularExpression(
-            pattern: "\\scontent=\"(.*?)\"",
+            pattern: "\\scontent=\\\\*?\"(.*?)\\\\*?\"",
             options: []
         )
         
@@ -43,7 +43,7 @@ extension OpenGraphParser {
                 var contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.count))
                 if contentMatches.first == nil {
                     let contentRegexp = try! NSRegularExpression(
-                        pattern: "\\scontent='(.*?)'",
+                        pattern: "\\scontent=\\\\*?'(.*?)\\\\*?'",
                         options: []
                     )
                     contentMatches = contentRegexp.matches(in: metaTag, options: [], range: NSMakeRange(0, metaTag.count))
