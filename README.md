@@ -16,7 +16,7 @@ OpenGraph.fetch(url: url) { result in
 }
 ```
 
-All metadatas are defined [here](https://github.com/satoshi-takano/OpenGraph/blob/master/OpenGraph/OpenGraphMetadata.swift).
+All metadatas are defined [here](https://github.com/satoshi-takano/OpenGraph/blob/master/OpenGraph/OpenGraphMetadata.swift).  
 This library doesn't provide any platform specific views to display OGP data for high portability.
 
 If you want to use Rx interface, copy an extension below to your own project.
