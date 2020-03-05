@@ -16,6 +16,8 @@ OpenGraph.fetch(url: url) { result in
 }
 ```
 
+All metadatas are defined [here](https://github.com/satoshi-takano/OpenGraph/blob/master/OpenGraph/OpenGraphMetadata.swift).
+
 If you want to use Rx interface, copy an extension below to your own project.
 ```swift
 extension Reactive where Base: OpenGraph {
@@ -43,7 +45,7 @@ extension Reactive where Base: OpenGraph {
 ```
 
 ## Requirements
-- Xcode 11 / Swift 5.0 (If you use Xcode 10.x, you can use [1.1.0](https://github.com/satoshi-takano/OpenGraph/releases/tag/1.1.0).)
+- Xcode 11.x / Swift 5.x (If you use Xcode 10.x, you can use [1.1.0](https://github.com/satoshi-takano/OpenGraph/releases/tag/1.1.0).)
 - iOS 8.0 or later
 - macOS 10.9 or later
 - tvOS 9.0 or later
@@ -59,4 +61,4 @@ Insert `pod 'OpenGraph'` to your Podfile and run `pod install`.
 Insert `github "satoshi-takano/OpenGraph"` to your Cartfile and run `carthage update`.
 
 ## License
-This project and library has been created by Satoshi Takano and is under the MIT License.
+This library is under the MIT License.
