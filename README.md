@@ -19,7 +19,8 @@ OpenGraph.fetch(url: url) { result in
 All metadatas are defined [here](https://github.com/satoshi-takano/OpenGraph/blob/master/OpenGraph/OpenGraphMetadata.swift).  
 This library doesn't provide any platform specific views to display OGP data for high portability.
 
-If you want to use Rx interface, copy an extension below to your own project.
+Furthermore, please copy the extension below to your own project if you want to use this library with the Rx interface.
+
 ```swift
 extension Reactive where Base: OpenGraph {
     static func fetch(url: URL?) -> Observable<OpenGraph> {
