@@ -32,7 +32,7 @@ public enum OpenGraphMetadata: String, CaseIterable {
     case musicSong        = "music:song"
     case musicSongDisc    = "music:song:disc"
     case musicSongTrack   = "music:song:track"
-    case musicReleaseDate = "music:releaseDate"
+    case musicReleaseDate = "music:release_date"
     case musicCreator     = "music:creator"
 
     // Video
@@ -46,20 +46,20 @@ public enum OpenGraphMetadata: String, CaseIterable {
     case videoSeries      = "video:series"
 
     // No Vertical
-    case articlePublishedTime  = "article:publishedTime"
-    case articleModifiedTime   = "article:modifiedTime"
-    case articleExpirationTime = "article:expirationTime"
+    case articlePublishedTime  = "article:published_time"
+    case articleModifiedTime   = "article:modified_time"
+    case articleExpirationTime = "article:expiration_time"
     case articleAuthor         = "article:author"
     case articleSection        = "article:section"
     case articleTag            = "article:tag"
 
     case bookAuthor      = "book:author"
     case bookIsbn        = "book:isbn"
-    case bookReleaseDate = "book:releaseDate"
+    case bookReleaseDate = "book:release_date"
     case bookTag         = "book:tag"
 
-    case profileFirstName = "profile:firstName"
-    case profileLastName  = "profile:lastName"
+    case profileFirstName = "profile:first_name"
+    case profileLastName  = "profile:last_name"
     case profileUsername  = "profile:username"
     case profileGender    = "profile:gender"
 }
