@@ -64,7 +64,7 @@ Insert `github "satoshi-takano/OpenGraph"` to your Cartfile and run `carthage up
 
 ## How to handle redirections
 In most cases, the OpenGraph can handle server-side redirections automatically. But some web pages provoke redirections on their front-end JavaScript.
-You might be able to handle these kind of redirections by changing the User-Agent as follow.
+You might be able to handle these kind of redirections by changing the User-Agent as follows.  
 https://github.com/satoshi-takano/OpenGraph/issues/43
 
 ## License
