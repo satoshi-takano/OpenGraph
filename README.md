@@ -62,7 +62,7 @@ Insert `pod 'OpenGraph'` to your Podfile and run `pod install`.
 ### Carthage
 Insert `github "satoshi-takano/OpenGraph"` to your Cartfile and run `carthage update`.
 
-## Handle redirection
+## How to handle redirections
 In most cases, the OpenGraph can handle server-side redirections automatically. But some web pages provokes redirections on their front-end JavaScript.
 You might be able to handle these kind of redirections by changing the User-Agent as follow.
 https://github.com/satoshi-takano/OpenGraph/issues/43
