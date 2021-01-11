@@ -69,7 +69,7 @@
 		7B24FB0B1D3B2583005275B0 = {
 			isa = PBXGroup;
 			children = (
-				7B24FB171D3B2583005275B0 /* OpenGraph */,
+				F72F549525AC0738006EE8CF /* Sources */,
 				7B24FB231D3B2583005275B0 /* Tests */,
 				7B24FB161D3B2583005275B0 /* Products */,
 			);
@@ -108,6 +108,14 @@
 				7B24FB3D1D3B26C4005275B0 /* OpenGraphTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		F72F549525AC0738006EE8CF /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7B24FB171D3B2583005275B0 /* OpenGraph */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,7 +406,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = OpenGraph/Info.plist;
+				INFOPLIST_FILE = Sources/OpenGraph/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -429,7 +437,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = OpenGraph/Info.plist;
+				INFOPLIST_FILE = Sources/OpenGraph/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
