@@ -37,9 +37,12 @@ public struct OpenGraph {
             completion(.success(og))
         }
     }
+
+    public init(htmlString: String) {
+        self = OpenGraph(htmlString: htmlString, parser: DefaultOpenGraphParser())
+    }
     
-    init(htmlString: String, injector: () -> OpenGraphParser = { DefaultOpenGraphParser() }) {
-        let parser = injector()
+    init(htmlString: String, parser: OpenGraphParser) {
         source = parser.parse(htmlString: htmlString)
     }
     
