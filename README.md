@@ -48,7 +48,7 @@ extension Reactive where Base: OpenGraph {
 
 ## Requirements
 - Xcode 11.x / Swift 5.x (If you use Xcode 10.x, you can use [1.1.0](https://github.com/satoshi-takano/OpenGraph/releases/tag/1.1.0).)
-- iOS 8.0 or later
+- iOS 10.0 or later
 - macOS 10.9 or later
 - tvOS 9.0 or later
 - watchOS 2.0 or later
