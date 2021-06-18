@@ -14,9 +14,9 @@ let package = Package(
     targets: [
         .target(
             name: "OpenGraph",
+            dependencies: [],
             path: "Sources/OpenGraph",
-            exclude: ["Sources/OpenGraph/Info.plist"],
-            dependencies: []
+            exclude: ["Sources/OpenGraph/Info.plist"]
         ),
          .testTarget(
             name: "OpenGraphTests",
