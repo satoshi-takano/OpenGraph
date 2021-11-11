@@ -22,9 +22,8 @@ public struct OpenGraph {
         return task
     }
     
-    @available(iOS 15.0.0, *)
-    @available(macOS 12.0.0, *)
-    @discardableResult
+    #if compiler(>=5.5) && canImport(_Concurrency)
+    @available(macOS 12, iOS 15, watchOS 8, tvOS 15, *)
     public static func fetch(url: URL, headers: [String: String]? = nil, configuration: URLSessionConfiguration = .default) async throws-> OpenGraph {
         var mutableURLRequest = URLRequest(url: url)
         headers?.compactMapValues { $0 }.forEach {
@@ -34,7 +33,7 @@ public struct OpenGraph {
         let (data, response) = try await session.data(for: mutableURLRequest)
         return try await handleFetchResult(data: data, response: response)
     }
-    
+    #endif
     
     private static func handleFetchResult(data: Data?, response: URLResponse?, completion: @escaping (Result<OpenGraph, Error>) -> Void) {
         guard let data = data, let response = response as? HTTPURLResponse else {
@@ -52,8 +51,8 @@ public struct OpenGraph {
         }
     }
     
-    @available(iOS 15.0.0, *)
-    @available(macOS 12.0.0, *)
+    #if compiler(>=5.5) && canImport(_Concurrency)
+    @available(macOS 12, iOS 15, watchOS 8, tvOS 15, *)
     private static func handleFetchResult(data: Data, response: URLResponse) async throws -> OpenGraph {
         if let response = response as? HTTPURLResponse,
            !(200..<300).contains(response.statusCode) {
@@ -65,6 +64,7 @@ public struct OpenGraph {
             return OpenGraph(htmlString: htmlString)
         }
     }
+    #endif
 
     public init(htmlString: String) {
         self = OpenGraph(htmlString: htmlString, parser: DefaultOpenGraphParser())
