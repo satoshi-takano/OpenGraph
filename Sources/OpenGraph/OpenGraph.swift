@@ -29,11 +29,7 @@ public struct OpenGraph {
         if !(200..<300).contains(response.statusCode) {
             completion(.failure(OpenGraphResponseError.unexpectedStatusCode(response.statusCode)))
         } else {
-            var encoding = String.Encoding.utf8
-            if #available(macOS 10.10, *) {
-                encoding = data.stringEncoding ?? .utf8
-            }
-            guard let htmlString = String(data: data, encoding: encoding) else {
+            guard let htmlString = String(data: data) else {
                 completion(.failure(OpenGraphParseError.encodingError))
                 return
             }
