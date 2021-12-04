@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4204E998275B260700AB31CC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204E997275B260700AB31CC /* Data.swift */; };
 		6A7310FF1E279D5D00CE1756 /* example3.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A7310FB1E279C7E00CE1756 /* example3.com.html */; };
 		7B24FB191D3B2583005275B0 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B24FB181D3B2583005275B0 /* OpenGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B24FB201D3B2583005275B0 /* OpenGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B24FB151D3B2583005275B0 /* OpenGraph.framework */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4204E997275B260700AB31CC /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		6A7310FB1E279C7E00CE1756 /* example3.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example3.com.html; sourceTree = "<group>"; };
 		7B24FB151D3B2583005275B0 /* OpenGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B24FB181D3B2583005275B0 /* OpenGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGraph.h; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4204E996275B25F300AB31CC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4204E997275B260700AB31CC /* Data.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		7B24FB0B1D3B2583005275B0 = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +103,7 @@
 				7B24FB431D3B27E5005275B0 /* OpenGraphParseError.swift */,
 				7B24FB441D3B27E5005275B0 /* OpenGraphParser.swift */,
 				7B24FB451D3B27E5005275B0 /* OpenGraphResponseError.swift */,
+				4204E996275B25F300AB31CC /* Extension */,
 				7B24FB1A1D3B2583005275B0 /* Info.plist */,
 			);
 			path = OpenGraph;
@@ -252,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B24FB461D3B27E5005275B0 /* OpenGraph.swift in Sources */,
+				4204E998275B260700AB31CC /* Data.swift in Sources */,
 				7B24FB4A1D3B27E5005275B0 /* OpenGraphResponseError.swift in Sources */,
 				7B24FB491D3B27E5005275B0 /* OpenGraphParser.swift in Sources */,
 				7B24FB481D3B27E5005275B0 /* OpenGraphParseError.swift in Sources */,
