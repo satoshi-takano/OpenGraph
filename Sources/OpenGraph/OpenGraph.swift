@@ -22,6 +22,30 @@ public struct OpenGraph {
         return task
     }
     
+    #if compiler(>=5.5.2) && canImport(_Concurrency)
+    @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+    public static func fetch(url: URL, headers: [String: String]? = nil, configuration: URLSessionConfiguration = .default) async throws-> OpenGraph {
+        var mutableURLRequest = URLRequest(url: url)
+        headers?.compactMapValues { $0 }.forEach {
+            mutableURLRequest.setValue($1, forHTTPHeaderField: $0)
+        }
+        let session = URLSession(configuration: configuration)
+        let (data, response) = try await session.data(for: mutableURLRequest)
+        return try handleFetchResult(data: data, response: response)
+    }
+    #elseif compiler(>=5.5) && canImport(_Concurrency)
+    @available(macOS 12, iOS 15, watchOS 8, tvOS 15, *)
+    public static func fetch(url: URL, headers: [String: String]? = nil, configuration: URLSessionConfiguration = .default) async throws-> OpenGraph {
+        var mutableURLRequest = URLRequest(url: url)
+        headers?.compactMapValues { $0 }.forEach {
+            mutableURLRequest.setValue($1, forHTTPHeaderField: $0)
+        }
+        let session = URLSession(configuration: configuration)
+        let (data, response) = try await session.data(for: mutableURLRequest)
+        return try handleFetchResult(data: data, response: response)
+    }
+    #endif
+    
     private static func handleFetchResult(data: Data?, response: URLResponse?, completion: @escaping (Result<OpenGraph, Error>) -> Void) {
         guard let data = data, let response = response as? HTTPURLResponse else {
             return
@@ -35,6 +59,18 @@ public struct OpenGraph {
             }
             let og = OpenGraph(htmlString: htmlString)
             completion(.success(og))
+        }
+    }
+    
+    private static func handleFetchResult(data: Data, response: URLResponse) throws -> OpenGraph {
+        if let response = response as? HTTPURLResponse,
+           !(200..<300).contains(response.statusCode) {
+            throw OpenGraphResponseError.unexpectedStatusCode(response.statusCode)
+        } else {
+            guard let htmlString = String(data: data, encoding: String.Encoding.utf8) else {
+                throw OpenGraphParseError.encodingError
+            }
+            return OpenGraph(htmlString: htmlString)
         }
     }
 
