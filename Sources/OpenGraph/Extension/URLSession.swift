@@ -10,10 +10,7 @@ import Foundation
 
 // Taken from John Sundell's [AsyncCompatibilityKit](https://github.com/JohnSundell/AsyncCompatibilityKit/blob/main/Sources/URLSession%2BAsync.swift)
 
-@available(iOS, introduced: 13, obsoleted: 15)
-@available(macOS, introduced: 10.15, obsoleted: 12)
-@available(watchOS, introduced: 6, obsoleted: 8)
-@available(tvOS, introduced: 13, obsoleted: 15)
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
 public extension URLSession {
     /// Start a data task with a URL using async/await.
     /// - parameter url: The URL to send a request to.
