@@ -16,6 +16,20 @@ OpenGraph.fetch(url: url) { result in
 }
 ```
 
+For macOS 10.15, iOS 13, watchOS 6, tvOS 13, and above, you can use the async/await syntax: 
+
+```swift
+do {
+    let og = try await OpenGraph.fetch(url: url)
+    print(og[.title]) // => og:title of the web site
+    print(og[.type])  // => og:type of the web site
+    print(og[.image]) // => og:image of the web site
+    print(og[.url])   // => og:url of the web site
+} catch {
+    print(error)
+}
+```
+
 All metadatas are defined [here](https://github.com/satoshi-takano/OpenGraph/blob/master/OpenGraph/OpenGraphMetadata.swift).  
 This library doesn't provide any platform specific views to display OGP data for high portability.
 
