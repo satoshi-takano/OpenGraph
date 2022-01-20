@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A78BBD027972EB30049F53B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78BBCF27972EB30049F53B /* URLSession.swift */; };
 		4204E998275B260700AB31CC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204E997275B260700AB31CC /* Data.swift */; };
 		4204EA19275B76AE00AB31CC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204EA18275B76AE00AB31CC /* String.swift */; };
 		6A7310FF1E279D5D00CE1756 /* example3.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A7310FB1E279C7E00CE1756 /* example3.com.html */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A78BBCF27972EB30049F53B /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		4204E997275B260700AB31CC /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4204EA18275B76AE00AB31CC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		6A7310FB1E279C7E00CE1756 /* example3.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example3.com.html; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			children = (
 				4204E997275B260700AB31CC /* Data.swift */,
 				4204EA18275B76AE00AB31CC /* String.swift */,
+				0A78BBCF27972EB30049F53B /* URLSession.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				7B24FB461D3B27E5005275B0 /* OpenGraph.swift in Sources */,
 				4204E998275B260700AB31CC /* Data.swift in Sources */,
+				0A78BBD027972EB30049F53B /* URLSession.swift in Sources */,
 				7B24FB4A1D3B27E5005275B0 /* OpenGraphResponseError.swift in Sources */,
 				7B24FB491D3B27E5005275B0 /* OpenGraphParser.swift in Sources */,
 				4204EA19275B76AE00AB31CC /* String.swift in Sources */,
