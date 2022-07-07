@@ -53,7 +53,7 @@ public struct OpenGraph {
         if !(200..<300).contains(response.statusCode) {
             completion(.failure(OpenGraphResponseError.unexpectedStatusCode(response.statusCode)))
         } else {
-            guard let htmlString = String(data: data) else {
+            guard let htmlString = String(data: data, textEncodingName: response.textEncodingName) else {
                 completion(.failure(OpenGraphParseError.encodingError))
                 return
             }
