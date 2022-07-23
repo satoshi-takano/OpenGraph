@@ -9,11 +9,21 @@
 import Foundation
 
 extension String {
-    init?(data: Data, `default`: String.Encoding = .utf8) {
-        var encoding = `default`
-        if #available(macOS 10.10, *) {
-            encoding = data.stringEncoding ?? `default`
-        }
+    init?(data: Data, textEncodingName: String? = nil, `default`: String.Encoding = .utf8) {
+        let encoding: String.Encoding = {
+            if let textEncodingName = textEncodingName {
+                let cfe = CFStringConvertIANACharSetNameToEncoding(textEncodingName as CFString)
+                if cfe != kCFStringEncodingInvalidId {
+                    let se = CFStringConvertEncodingToNSStringEncoding(cfe)
+                    return String.Encoding(rawValue: se)
+                }
+            }
+            if #available(macOS 10.10, *) {
+                return data.stringEncoding ?? `default`
+            }
+            return `default`
+        }()
+
         self.init(data: data, encoding: encoding)
     }
 }
