@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name        = "OpenGraph"
-  s.version     = "1.4.1"
+  s.version     = "1.5.0"
   s.summary     = "A Swift wrapper for the Open Graph protocol."
   s.homepage    = "https://github.com/satoshi-takano/OpenGraph"
   s.license     = {
