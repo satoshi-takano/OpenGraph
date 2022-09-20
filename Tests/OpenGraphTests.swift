@@ -1,5 +1,6 @@
 import XCTest
 import OHHTTPStubs
+import OHHTTPStubsSwift
 @testable import OpenGraph
 
 class OpenGraphTests: XCTestCase {
@@ -12,15 +13,15 @@ class OpenGraphTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
         
-        OHHTTPStubs.removeAllStubs()
+        HTTPStubs.removeAllStubs()
     }
     
     func setupStub(htmlFileName: String) {
-        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
-            return true
-        }) { request -> OHHTTPStubsResponse in
+        HTTPStubs.stubRequests { request in
+            true
+        } withStubResponse: { request in
             let path = Bundle(for: type(of: self)).path(forResource: htmlFileName, ofType: "html")
-            return OHHTTPStubsResponse(fileAtPath: path!, statusCode: 200, headers: nil)
+            return .init(fileAtPath: path!, statusCode: 200, headers: nil)
         }
     }
     
@@ -107,12 +108,12 @@ class OpenGraphTests: XCTestCase {
     func testHTTPResponseError() {
         let responseArrived = expectation(description: "response of async request has arrived")
         
-        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
-            return true
-        }) { request -> OHHTTPStubsResponse in
-            OHHTTPStubsResponse(jsonObject: [:], statusCode: 404, headers: nil)
+        HTTPStubs.stubRequests { request in
+            true
+        } withStubResponse: { request in
+            return .init(jsonObject: [:], statusCode: 404, headers: nil)
         }
-        
+
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph?
         var error: Error?
@@ -142,13 +143,19 @@ class OpenGraphTests: XCTestCase {
     
     func testParseError() {
         let responseArrived = expectation(description: "response of async request has arrived")
-        
-        OHHTTPStubs.stubRequests(passingTest: { request -> Bool in
-            return true
-        }) { request -> OHHTTPStubsResponse in
-            OHHTTPStubsResponse(data: "あ".data(using: String.Encoding.shiftJIS)!, statusCode: 200, headers: nil)
+      
+        OHHTTPStubsSwift.stub { request in
+          return true
+        } response: { request in
+          HTTPStubsResponse()
         }
-        
+
+        HTTPStubs.stubRequests { request in
+            true
+        } withStubResponse: { request in
+            .init(data: "あ".data(using: String.Encoding.shiftJIS)!, statusCode: 200, headers: nil)
+        }
+
         let url = URL(string: "https://www.example.com")!
         var og: OpenGraph?
         var error: Error?
