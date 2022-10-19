@@ -25,7 +25,8 @@ let package = Package(
          .testTarget(
             name: "OpenGraphTests",
             dependencies: ["OpenGraph"],
-            path: "Tests"
+            path: "Tests",
+            resources: [.process("Resources")]
         ),
     ],
     swiftLanguageVersions: [.v5]
