@@ -20,7 +20,11 @@ class OpenGraphTests: XCTestCase {
         HTTPStubs.stubRequests { request in
             true
         } withStubResponse: { request in
-            let path = Bundle(for: type(of: self)).path(forResource: htmlFileName, ofType: "html")
+#if SWIFT_PACKAGE
+          let path = Bundle.module.path(forResource: htmlFileName, ofType: "html")
+#else
+          let path = Bundle(for: type(of: self)).path(forResource: htmlFileName, ofType: "html")
+#endif
             return .init(fileAtPath: path!, statusCode: 200, headers: nil)
         }
     }
