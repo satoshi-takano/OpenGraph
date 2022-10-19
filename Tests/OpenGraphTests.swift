@@ -145,9 +145,7 @@ class OpenGraphTests: XCTestCase {
         }
     }
     
-    func testParseError() {
-        let responseArrived = expectation(description: "response of async request has arrived")
-      
+    func testParseError() async {
         OHHTTPStubsSwift.stub { request in
           return true
         } response: { request in
@@ -161,19 +159,12 @@ class OpenGraphTests: XCTestCase {
         }
 
         let url = URL(string: "https://www.example.com")!
-        var og: OpenGraph?
-        var error: Error?
-        OpenGraph.fetch(url: url) { result in
-            switch result {
-            case .success(let _og): og = _og
-            case .failure(let _error): error = _error
-            }
-            responseArrived.fulfill()
+      
+        do {
+            _ = try await OpenGraph.fetch(url: url)
         }
-        
-        waitForExpectations(timeout: 10) { _ in
-            XCTAssert(og == nil)
-            XCTAssert(error! is OpenGraphParseError)
+        catch let error {
+            XCTAssert(error is OpenGraphParseError)
         }
     }
 
