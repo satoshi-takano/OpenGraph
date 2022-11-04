@@ -10,17 +10,23 @@ let package = Package(
     products: [
         .library(name: "OpenGraph", targets: ["OpenGraph"]),
     ],
-    dependencies: [],
+    dependencies: [
+      .package(url: "https://github.com/AliSoftware/OHHTTPStubs", .upToNextMajor(from: "9.0.0")),
+    ],
     targets: [
         .target(
             name: "OpenGraph",
-            dependencies: [],
+            dependencies: [
+              .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
+            ],
             path: "Sources/OpenGraph",
             exclude: ["Info.plist"]
         ),
          .testTarget(
             name: "OpenGraphTests",
-            dependencies: ["OpenGraph"]
+            dependencies: ["OpenGraph"],
+            path: "Tests",
+            resources: [.process("Resources")]
         ),
     ],
     swiftLanguageVersions: [.v5]
