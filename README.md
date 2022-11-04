@@ -30,7 +30,7 @@ do {
 }
 ```
 
-All metadatas are defined [here](https://github.com/satoshi-takano/OpenGraph/blob/master/OpenGraph/OpenGraphMetadata.swift).  
+All metadata are defined [here](https://github.com/satoshi-takano/OpenGraph/blob/main/Sources/OpenGraph/OpenGraphMetadata.swift).  
 This library doesn't provide any platform specific views to display OGP data for high portability.
 
 Furthermore, please copy the extension below to your own project if you want to use this library with the Rx interface.
