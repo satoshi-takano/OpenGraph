@@ -171,6 +171,8 @@ class OpenGraphTests: XCTestCase {
         XCTAssert(OpenGraph(htmlString: html)[.description] == "It's a description")
         html = "<meta property=\"og:title\" content=\"It's a title contains single quote\"/>"
         XCTAssert(OpenGraph(htmlString: html)[.title] == "It's a title contains single quote")
+        html = "<meta name=\"og:title\" content=\"It's a title contains single quote\"/>"
+        XCTAssert(OpenGraph(htmlString: html)[.title] == "It's a title contains single quote")
 
         html = "<meta content='It&#39;s a description' property='og:description' />"
         XCTAssert(OpenGraph(htmlString: html)[.description] == "It&#39;s a description")
