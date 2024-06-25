@@ -16,15 +16,15 @@ let package = Package(
     targets: [
         .target(
             name: "OpenGraph",
-            dependencies: [
-              .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
-            ],
             path: "Sources/OpenGraph",
             exclude: ["Info.plist"]
         ),
          .testTarget(
             name: "OpenGraphTests",
-            dependencies: ["OpenGraph"],
+            dependencies: [
+                "OpenGraph",
+                .product(name: "OHHTTPStubsSwift", package: "OHHTTPStubs")
+            ],
             path: "Tests",
             resources: [.process("Resources")]
         ),

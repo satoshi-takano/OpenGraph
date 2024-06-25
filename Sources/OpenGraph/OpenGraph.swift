@@ -7,6 +7,7 @@ public struct OpenGraph {
     
     public let source: [OpenGraphMetadata: String]
     
+    @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
     @discardableResult
     public static func fetch(url: URL, headers: [String: String]? = nil, configuration: URLSessionConfiguration = .default, completion: @escaping (Result<OpenGraph, Error>) -> Void) -> URLSessionDataTask {
         var mutableURLRequest = URLRequest(url: url)
@@ -49,6 +50,7 @@ public struct OpenGraph {
     }
     #endif
     
+    @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
     private static func handleFetchResult(data: Data?, response: URLResponse?, completion: @escaping (Result<OpenGraph, Error>) -> Void) {
         guard let data = data, let response = response as? HTTPURLResponse else {
             return
@@ -65,6 +67,7 @@ public struct OpenGraph {
         }
     }
     
+    @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
     private static func handleFetchResult(data: Data, response: URLResponse) throws -> OpenGraph {
         if let response = response as? HTTPURLResponse,
            !(200..<300).contains(response.statusCode) {

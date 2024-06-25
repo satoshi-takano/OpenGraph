@@ -8,8 +8,8 @@
 
 import Foundation
 
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
 extension Data {
-    @available(macOS 10.10, *)
     var stringEncoding: String.Encoding? {
 #if os(Linux)
         return nil
