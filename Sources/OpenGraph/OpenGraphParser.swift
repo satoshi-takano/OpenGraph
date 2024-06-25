@@ -52,7 +52,7 @@ extension OpenGraphParser {
                 
                 let nsMetaTag = metaTag as NSString
                 let property = nsMetaTag.substring(with: propertyResult.range(at: 1))
-                let content = nsMetaTag.substring(with: contentResult.range(at: 1))
+                let content = nsMetaTag.substring(with: contentResult.range(at: 1)).stringByDecodingHTMLEntities
                 
                 return (name: property, content: content)
             }()
