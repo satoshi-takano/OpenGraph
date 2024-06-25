@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0A78BBD027972EB30049F53B /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78BBCF27972EB30049F53B /* URLSession.swift */; };
 		4204E998275B260700AB31CC /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204E997275B260700AB31CC /* Data.swift */; };
 		4204EA19275B76AE00AB31CC /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4204EA18275B76AE00AB31CC /* String.swift */; };
-		6A7310FF1E279D5D00CE1756 /* example3.com.html in Resources */ = {isa = PBXBuildFile; fileRef = 6A7310FB1E279C7E00CE1756 /* example3.com.html */; };
 		7B24FB191D3B2583005275B0 /* OpenGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B24FB181D3B2583005275B0 /* OpenGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B24FB201D3B2583005275B0 /* OpenGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B24FB151D3B2583005275B0 /* OpenGraph.framework */; };
 		7B24FB3E1D3B26C4005275B0 /* OpenGraphTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB3D1D3B26C4005275B0 /* OpenGraphTests.swift */; };
@@ -19,8 +18,11 @@
 		7B24FB481D3B27E5005275B0 /* OpenGraphParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB431D3B27E5005275B0 /* OpenGraphParseError.swift */; };
 		7B24FB491D3B27E5005275B0 /* OpenGraphParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB441D3B27E5005275B0 /* OpenGraphParser.swift */; };
 		7B24FB4A1D3B27E5005275B0 /* OpenGraphResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B24FB451D3B27E5005275B0 /* OpenGraphResponseError.swift */; };
-		7B24FB531D3B2DD4005275B0 /* ogp.html in Resources */ = {isa = PBXBuildFile; fileRef = 7B24FB521D3B2DD4005275B0 /* ogp.html */; };
-		CBEA99A61E2B65F40066452C /* empty_ogp.html in Resources */ = {isa = PBXBuildFile; fileRef = CBEA99A41E2B63980066452C /* empty_ogp.html */; };
+		F75574302C2B0E0E002416DD /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = F755742F2C2B0E0E002416DD /* OHHTTPStubs */; };
+		F75574322C2B0E0E002416DD /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F75574312C2B0E0E002416DD /* OHHTTPStubsSwift */; };
+		F75574372C2B0E8C002416DD /* empty_ogp.html in Resources */ = {isa = PBXBuildFile; fileRef = F75574332C2B0E8C002416DD /* empty_ogp.html */; };
+		F75574382C2B0E8C002416DD /* example3.com.html in Resources */ = {isa = PBXBuildFile; fileRef = F75574342C2B0E8C002416DD /* example3.com.html */; };
+		F75574392C2B0E8C002416DD /* ogp.html in Resources */ = {isa = PBXBuildFile; fileRef = F75574352C2B0E8C002416DD /* ogp.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +39,6 @@
 		0A78BBCF27972EB30049F53B /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		4204E997275B260700AB31CC /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		4204EA18275B76AE00AB31CC /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		6A7310FB1E279C7E00CE1756 /* example3.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example3.com.html; sourceTree = "<group>"; };
 		7B24FB151D3B2583005275B0 /* OpenGraph.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OpenGraph.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B24FB181D3B2583005275B0 /* OpenGraph.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGraph.h; sourceTree = "<group>"; };
 		7B24FB1A1D3B2583005275B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,8 +50,9 @@
 		7B24FB431D3B27E5005275B0 /* OpenGraphParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParseError.swift; sourceTree = "<group>"; };
 		7B24FB441D3B27E5005275B0 /* OpenGraphParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphParser.swift; sourceTree = "<group>"; };
 		7B24FB451D3B27E5005275B0 /* OpenGraphResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenGraphResponseError.swift; sourceTree = "<group>"; };
-		7B24FB521D3B2DD4005275B0 /* ogp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ogp.html; sourceTree = "<group>"; };
-		CBEA99A41E2B63980066452C /* empty_ogp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = empty_ogp.html; sourceTree = "<group>"; };
+		F75574332C2B0E8C002416DD /* empty_ogp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = empty_ogp.html; sourceTree = "<group>"; };
+		F75574342C2B0E8C002416DD /* example3.com.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = example3.com.html; sourceTree = "<group>"; };
+		F75574352C2B0E8C002416DD /* ogp.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = ogp.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B24FB201D3B2583005275B0 /* OpenGraph.framework in Frameworks */,
+				F75574322C2B0E0E002416DD /* OHHTTPStubsSwift in Frameworks */,
+				F75574302C2B0E0E002416DD /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,9 +122,7 @@
 		7B24FB231D3B2583005275B0 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				7B24FB521D3B2DD4005275B0 /* ogp.html */,
-				6A7310FB1E279C7E00CE1756 /* example3.com.html */,
-				CBEA99A41E2B63980066452C /* empty_ogp.html */,
+				F75574362C2B0E8C002416DD /* Resources */,
 				7B24FB261D3B2583005275B0 /* Info.plist */,
 				7B24FB3D1D3B26C4005275B0 /* OpenGraphTests.swift */,
 			);
@@ -133,6 +135,16 @@
 				7B24FB171D3B2583005275B0 /* OpenGraph */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		F75574362C2B0E8C002416DD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F75574332C2B0E8C002416DD /* empty_ogp.html */,
+				F75574342C2B0E8C002416DD /* example3.com.html */,
+				F75574352C2B0E8C002416DD /* ogp.html */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,7 +186,6 @@
 				7B24FB1B1D3B2583005275B0 /* Sources */,
 				7B24FB1C1D3B2583005275B0 /* Frameworks */,
 				7B24FB1D1D3B2583005275B0 /* Resources */,
-				7B24FB511D3B2D2B005275B0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -182,6 +193,10 @@
 				7B24FB221D3B2583005275B0 /* PBXTargetDependency */,
 			);
 			name = OpenGraphTests;
+			packageProductDependencies = (
+				F755742F2C2B0E0E002416DD /* OHHTTPStubs */,
+				F75574312C2B0E0E002416DD /* OHHTTPStubsSwift */,
+			);
 			productName = OpenGraphTests;
 			productReference = 7B24FB1F1D3B2583005275B0 /* OpenGraphTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -216,6 +231,9 @@
 				en,
 			);
 			mainGroup = 7B24FB0B1D3B2583005275B0;
+			packageReferences = (
+				F755742E2C2B0E0E002416DD /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+			);
 			productRefGroup = 7B24FB161D3B2583005275B0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -238,30 +256,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CBEA99A61E2B65F40066452C /* empty_ogp.html in Resources */,
-				6A7310FF1E279D5D00CE1756 /* example3.com.html in Resources */,
-				7B24FB531D3B2DD4005275B0 /* ogp.html in Resources */,
+				F75574382C2B0E8C002416DD /* example3.com.html in Resources */,
+				F75574372C2B0E8C002416DD /* empty_ogp.html in Resources */,
+				F75574392C2B0E8C002416DD /* ogp.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		7B24FB511D3B2D2B005275B0 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/Mac/OHHTTPStubs.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B24FB101D3B2583005275B0 /* Sources */ = {
@@ -345,7 +346,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -399,10 +400,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -429,8 +431,12 @@
 				INFOPLIST_FILE = Sources/OpenGraph/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraph";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -460,8 +466,12 @@
 				INFOPLIST_FILE = Sources/OpenGraph/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraph";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -483,7 +493,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -502,7 +516,11 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "net.cloud-dj.OpenGraphTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -540,6 +558,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F755742E2C2B0E0E002416DD /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F755742F2C2B0E0E002416DD /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F755742E2C2B0E0E002416DD /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		F75574312C2B0E0E002416DD /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F755742E2C2B0E0E002416DD /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7B24FB0C1D3B2583005275B0 /* Project object */;
 }
