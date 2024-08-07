@@ -9,7 +9,6 @@
 import Foundation
 
 extension String {
-    @available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
     init?(data: Data, textEncodingName: String? = nil, `default`: String.Encoding = .utf8) {
         let encoding: String.Encoding = {
             if let textEncodingName = textEncodingName {
@@ -19,10 +18,7 @@ extension String {
                     return String.Encoding(rawValue: se)
                 }
             }
-            if #available(macOS 10.10, *) {
-                return data.stringEncoding ?? `default`
-            }
-            return `default`
+            return data.stringEncoding ?? `default`
         }()
 
         self.init(data: data, encoding: encoding)
